@@ -1,0 +1,17 @@
+Coloque as fotos nesta pasta com os seguintes nomes:
+
+GRANDES ASSINATURAS:
+- alex-carrie-vik.jpg
+- fernando-odriozola.jpg
+
+COCRIADORES:
+- patricia-borges.jpg
+- patricia-oreilly.jpg
+- luiz-carlos-orsini.jpg
+- diana-brooks.jpg
+- marcelo-montoro.jpg
+- marina-linhares.jpg
+- marcelo-daglio.jpg
+- galvez-marton.jpg
+
+Formatos aceitos: JPG, PNG

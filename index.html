@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fazenda Vista Verde</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Tela 1: Splash -->
+  <section id="screen-splash" class="screen active">
+    <div class="screen-1-background"></div>
+    <div class="screen-1-symbol" aria-hidden="true"></div>
+    <div class="screen-1-content">
+      <img src="LogoFazenda.png" alt="Fazenda Vista Verde" class="logo">
+      <button class="btn-iniciar" onclick="goTo('screen-app')">Iniciar</button>
+    </div>
+  </section>
+
+  <!-- Tela 2: App com menu lateral -->
+  <section id="screen-app" class="screen app-layout">
+    <button class="btn-menu-toggle btn-menu-open" onclick="toggleMenu()" aria-label="Abrir menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 12h18M3 6h18M3 18h18"/>
+      </svg>
+    </button>
+    <aside class="sidebar" id="sidebar">
+      <button class="btn-menu-toggle btn-menu-close" onclick="toggleMenu()" aria-label="Fechar menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
+      </button>
+      <img src="LogoFazenda.png" alt="Fazenda Vista Verde" class="sidebar-logo">
+      <button class="btn-back-sidebar" onclick="goTo('screen-splash')" aria-label="Voltar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        <span>Voltar</span>
+      </button>
+      <nav class="sidebar-menu">
+        <button class="menu-item" data-page="page-amenities">
+          <span class="menu-item-text">Amenities</span>
+          <span class="menu-item-line"></span>
+        </button>
+        <button class="menu-item" data-page="page-surf">
+          <span class="menu-item-text">Surf & Beach</span>
+          <span class="menu-item-line"></span>
+        </button>
+        <button class="menu-item" data-page="page-sports">
+          <span class="menu-item-text">Sports</span>
+          <span class="menu-item-line"></span>
+        </button>
+        <button class="menu-item" data-page="page-equestrian">
+          <span class="menu-item-text">Equestrian Center</span>
+          <span class="menu-item-line"></span>
+        </button>
+        <button class="menu-item" data-page="page-ln">
+          <span class="menu-item-text">LN Urbanismo</span>
+          <span class="menu-item-line"></span>
+        </button>
+        <button class="menu-item" data-page="page-cocriadores">
+          <span class="menu-item-text">Cocriadores</span>
+          <span class="menu-item-line"></span>
+        </button>
+        <button class="menu-item" data-page="page-perspectiva">
+          <span class="menu-item-text">Perspectiva</span>
+          <span class="menu-item-line"></span>
+        </button>
+        <button class="menu-item" data-page="page-implantacao">
+          <span class="menu-item-text">Implantação</span>
+          <span class="menu-item-line"></span>
+        </button>
+        <button class="menu-item" data-page="page-ficha">
+          <span class="menu-item-text">Ficha Técnica</span>
+          <span class="menu-item-line"></span>
+        </button>
+        <button class="menu-item" data-page="page-localizacao">
+          <span class="menu-item-text">Localização</span>
+          <span class="menu-item-line"></span>
+        </button>
+      </nav>
+    </aside>
+    <main class="content-area">
+      <div class="content-background"></div>
+      <div class="content-pages">
+        <!-- Página: Amenities -->
+        <article id="page-amenities" class="content-page active">
+          <div class="content-inner content-inner-wide">
+            <h2>AMENITIES E FACILITIES QUE HARMONIZAM COM SEU LIFESTYLE</h2>
+            <div class="subsection">
+              <h3>HOTEL VIK RETREATS</h3>
+              <div class="amenities-icons-row">
+                <div class="amenity-item">
+                  <img src="icones-png/WINE_EXP.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Wine Experience</span>
+                </div>
+                <div class="amenity-item">
+                  <img src="icones-png/RESTAURANTES.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Restaurante</span>
+                </div>
+                <div class="amenity-item">
+                  <img src="icones-png/SPA.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">SPA</span>
+                </div>
+                <div class="amenity-item">
+                  <img src="icones-png/PISCINA_BORDA_INFINITA.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Piscina com borda infinita</span>
+                </div>
+                <div class="amenity-item">
+                  <img src="icones-png/FITNESS.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Fitness</span>
+                </div>
+                <div class="amenity-item">
+                  <img src="icones-png/ESPACO_EVENTOS.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Espaço de eventos</span>
+                </div>
+              </div>
+            </div>
+            <div class="subsection">
+              <h3>Áreas Comuns</h3>
+              <div class="amenities-icons-grid">
+                <div class="amenity-item">
+                  <img src="icones-png/SURF_BEACH.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Piscina de ondas</span>
+                </div>
+                <div class="amenity-item">
+                  <img src="icones-png/PISCINA.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Piscinas adulto e infantil</span>
+                </div>
+                <div class="amenity-item">
+                  <img src="icones-png/RESTAURANTES.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Restaurantes</span>
+                </div>
+                <div class="amenity-item">
+                  <img src="icones-png/ARTE.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Museu a céu aberto</span>
+                </div>
+                <div class="amenity-item">
+                  <img src="icones-png/LA_SUSANA_BEACH_CLUB.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">La Susana Beach Club</span>
+                </div>
+                <div class="amenity-item">
+                  <img src="icones-png/SPA.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">SPA</span>
+                </div>
+                <div class="amenity-item">
+                  <img src="icones-png/BEACH_TENNIS.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Quadras de beach tennis e tênis</span>
+                </div>
+                <div class="amenity-item">
+                  <img src="icones-png/QUADRA_POLIESPORTIVA.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Quadras poliesportivas</span>
+                </div>
+                <div class="amenity-item">
+                  <img src="icones-png/CAMPOS DE FUTEBOL.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Campos de futebol</span>
+                </div>
+                <div class="amenity-item">
+                  <img src="icones-png/FITNESS.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Fitness</span>
+                </div>
+                <div class="amenity-item">
+                  <img src="icones-png/PISTA_COOPER.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Pista de cooper</span>
+                </div>
+                <div class="amenity-item">
+                  <img src="icones-png/PISTA_BICICLETA.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Pista de bicicleta</span>
+                </div>
+                <div class="amenity-item">
+                  <img src="icones-png/TRILHA_CAVALOS.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Trilhas de cavalos</span>
+                </div>
+                <div class="amenity-item">
+                  <img src="icones-png/SALAO_JOGOS.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Salão de jogos</span>
+                </div>
+                <div class="amenity-item">
+                  <img src="icones-png/CAPELA_ECUMENICA.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Capela ecumênica</span>
+                </div>
+                <div class="amenity-item">
+                  <img src="icones-png/FARMERS_MARKET.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Farmers market</span>
+                </div>
+                <div class="amenity-item">
+                  <img src="icones-png/HORTA_ORG_AGROFLORESTA.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Horta orgânica e agrofloresta</span>
+                </div>
+                <div class="amenity-item">
+                  <img src="icones-png/FAZENDINHA.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Fazendinha</span>
+                </div>
+                <div class="amenity-item">
+                  <img src="icones-png/HARAS.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Haras</span>
+                </div>
+                <div class="amenity-item">
+                  <img src="icones-png/PAVILHAO_EXPERIENCIAS.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Pavilhão de experiências</span>
+                </div>
+                <div class="amenity-item">
+                  <img src="icones-png/CASA_SEDE.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Casa sede</span>
+                </div>
+                <div class="amenity-item">
+                  <img src="icones-png/HELIPONTO.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Heliponto</span>
+                </div>
+                <div class="amenity-item">
+                  <img src="icones-png/PORTARIA_24H.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Portaria 24h</span>
+                </div>
+                <div class="amenity-item">
+                  <img src="icones-png/ESPACO_PET.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Espaço pet</span>
+                </div>
+                <div class="amenity-item">
+                  <img src="icones-png/ESPACO_KIDS.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Espaço kids</span>
+                </div>
+                <div class="amenity-item">
+                  <img src="icones-png/TENIS_SAIBRO.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Quadras de tênis em saibro</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Página: Surf & Beach -->
+        <article id="page-surf" class="content-page content-page-localizacao">
+          <div class="content-inner content-inner-wide">
+            <div class="localizacao-layout">
+              <div class="localizacao-imagem localizacao-imagem-esquerda">
+                <img src="FAZENDA VISTA VERDE/Surf/PÁG 24 - FAZENDA VISTA VERDE.jpg" alt="Surf & Beach - Fazenda Vista Verde">
+              </div>
+              <div class="localizacao-texto">
+                <h2>SURF & BEACH</h2>
+                <p>Imagine um lugar onde o surf faz parte de uma rotina em que bem-estar e liberdade se encontram, integrando o lifestyle da praia ao coração do interior de São Paulo.</p>
+                <p>Com a marca Wavegarden, a piscina de ondas oferece a oportunidade de surfar todos os dias. Você conta também com o La Susana Beach Club, um espaço com estrutura completa para se sentir na praia. Além de SPA para relaxar e quadras para praticar seus esportes favoritos.</p>
+              </div>
+              <div class="localizacao-imagem localizacao-imagem-direita">
+                <img src="FAZENDA VISTA VERDE/Surf/PÁG 24 - FAZENDA VISTA VERDE_.jpg" alt="Surf & Beach - Fazenda Vista Verde">
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Página: Sports -->
+        <article id="page-sports" class="content-page content-page-localizacao">
+          <div class="content-inner content-inner-wide">
+            <div class="localizacao-layout">
+              <div class="localizacao-imagem localizacao-imagem-esquerda">
+                <img src="FAZENDA VISTA VERDE/PÁG 31 - FAZENDA VISTA VERDE.jpg" alt="Sports - Fazenda Vista Verde">
+              </div>
+              <div class="localizacao-texto">
+                <h2>SPORTS</h2>
+                <p>Na Fazenda Vista Verde, a atividade física se transforma em experiências prazerosas, revigorantes e proporciona momentos de convivência familiar.</p>
+                <p>As quadras de tênis e poliesportivas garantem que esportes como tênis, vôlei e futebol façam parte da sua rotina. A academia oferece o espaço ideal para musculação e treinos funcionais. Já os amantes de esportes ao ar livre encontram na pista de corrida e nos circuitos para bike um convite para desbravar trilhas e sentir o ar puro enquanto se exercitam.</p>
+              </div>
+              <div class="localizacao-imagem localizacao-imagem-direita">
+                <img src="FAZENDA VISTA VERDE/PÁG 31 - FAZENDA VISTA VERDE_.jpg" alt="Sports - Fazenda Vista Verde">
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Página: Equestrian Center -->
+        <article id="page-equestrian" class="content-page content-page-localizacao">
+          <div class="content-inner content-inner-wide">
+            <div class="localizacao-layout">
+              <div class="localizacao-imagem localizacao-imagem-esquerda">
+                <img src="Equestrian/PÁG 35 - FAZENDA VISTA VERDE.jpg" alt="Equestrian Center - Fazenda Vista Verde">
+              </div>
+              <div class="localizacao-texto">
+                <h2>EQUESTRIAN<br>CENTER</h2>
+                <p>Projetado em parceria com a renomada arquiteta equestre Diana Brooks, o haras da Fazenda Vista Verde integra sofisticação e bem-estar animal.</p>
+              </div>
+              <div class="localizacao-imagem localizacao-imagem-direita">
+                <img src="Equestrian/PÁG 35 - FAZENDA VISTA VERDE_1.jpg" alt="Equestrian Center - Fazenda Vista Verde">
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Página: LN Urbanismo -->
+        <article id="page-ln" class="content-page">
+          <div class="content-inner">
+            <h2>CRIAR NOVOS DESTINOS É CRIAR NOVAS REALIDADES</h2>
+            <div class="subsection">
+              <p>Porque não se trata só de construir, mas desenvolver espaços, conectar culturas e criar comunidades. Criar novos destinos é criar o novo. Um novo futuro.</p>
+              <p>E assim, potencializamos as riquezas do Brasil. Descobrindo novos horizontes e repensando ambientes.</p>
+              <p class="tagline"><strong>LN Urbanismo. Criando novos destinos.</strong></p>
+            </div>
+            <div class="stats-grid">
+              <div class="stat">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">Anos de história</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">R$ 1 Bi</span>
+                <span class="stat-label">De VGV lançado</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">15+</span>
+                <span class="stat-label">Empreendimentos entregues nos últimos 10 anos</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">5</span>
+                <span class="stat-label">Projetos planejados para os próximos 2 anos</span>
+              </div>
+            </div>
+            <p class="grupo-luan">Uma empresa do Grupo Luan</p>
+          </div>
+        </article>
+
+        <!-- Página: Cocriadores -->
+        <article id="page-cocriadores" class="content-page">
+          <div class="content-inner">
+            <h2>COCRIADORES</h2>
+            <h3 class="subsection-title">GRANDES ASSINATURAS</h3>
+            <div class="cocriadores-grid pessoas-grid assinaturas-row">
+              <div class="cocriador pessoa-card">
+                <div class="person-photo">
+                  <img src="FAZENDA VISTA VERDE/Cocriadores/P%C3%81G%206%20-%20ALEX%20%26%20CARRIE%20VIK%20%20-%20FAZENDA%20VISTA%20VERDE.jpg" alt="Alex & Carrie Vik" onerror="this.onerror=null;this.classList.add('load-failed')">
+                </div>
+                <h4>ALEX & CARRIE VIK</h4>
+                <p>Idealizadores Hotel Vik Retreats</p>
+              </div>
+              <div class="cocriador pessoa-card">
+                <div class="person-photo">
+                  <img src="FAZENDA VISTA VERDE/Cocriadores/PÁG 6 - FERNANDO ODRIOZOLA  - FAZENDA VISTA VERDE.jpg" alt="Fernando Odriozola" onerror="this.onerror=null;this.classList.add('load-failed')">
+                </div>
+                <h4>FERNANDO ODRIOZOLA</h4>
+                <p>Piscina de Ondas - Wavegarden</p>
+              </div>
+            </div>
+            <h3 class="subsection-title">COCRIADORES</h3>
+            <div class="cocriadores-grid pessoas-grid">
+              <div class="cocriador pessoa-card">
+                <div class="person-photo">
+                  <img src="FAZENDA VISTA VERDE/Cocriadores/PÁG 7 - PATRICIA BORGES  - FAZENDA VISTA VERDE.jpg" alt="Patricia Borges" onerror="this.onerror=null;this.classList.add('load-failed')">
+                </div>
+                <h4>PATRICIA BORGES</h4>
+                <p>Curadoria de Arte</p>
+              </div>
+              <div class="cocriador pessoa-card">
+                <div class="person-photo">
+                  <img src="FAZENDA VISTA VERDE/Cocriadores/PÁG 7 - PATRICIA O´REILLY  - FAZENDA VISTA VERDE.jpg" alt="Patricia O'Reilly" onerror="this.onerror=null;this.classList.add('load-failed')">
+                </div>
+                <h4>PATRICIA O'REILLY</h4>
+                <p>Urbanismo</p>
+              </div>
+              <div class="cocriador pessoa-card">
+                <div class="person-photo">
+                  <img src="FAZENDA VISTA VERDE/Cocriadores/PÁG 7 - LUIZ CARLOS ORSINI  - FAZENDA VISTA VERDE.jpg" alt="Luiz Carlos Orsini" onerror="this.onerror=null;this.classList.add('load-failed')">
+                </div>
+                <h4>LUIZ CARLOS ORSINI</h4>
+                <p>Paisagismo</p>
+              </div>
+              <div class="cocriador pessoa-card">
+                <div class="person-photo">
+                  <img src="FAZENDA VISTA VERDE/Cocriadores/PÁG 7 - DIANA BROOKS  - FAZENDA VISTA VERDE.jpg" alt="Diana Brooks" onerror="this.onerror=null;this.classList.add('load-failed')">
+                </div>
+                <h4>DIANA BROOKS</h4>
+                <p>Haras</p>
+              </div>
+              <div class="cocriador pessoa-card">
+                <div class="person-photo">
+                  <img src="FAZENDA VISTA VERDE/Cocriadores/PÁG 8 - MARCELO MONTORO  - FAZENDA VISTA VERDE.jpg" alt="Marcelo Montoro" onerror="this.onerror=null;this.classList.add('load-failed')">
+                </div>
+                <h4>MARCELO MONTORO</h4>
+                <p>Áreas Comuns</p>
+              </div>
+              <div class="cocriador pessoa-card">
+                <div class="person-photo">
+                  <img src="FAZENDA VISTA VERDE/Cocriadores/PÁG 8 - MARINA LINHARES  - FAZENDA VISTA VERDE.jpg" alt="Marina Linhares" onerror="this.onerror=null;this.classList.add('load-failed')">
+                </div>
+                <h4>MARINA LINHARES</h4>
+                <p>Interiores</p>
+              </div>
+              <div class="cocriador pessoa-card">
+                <div class="person-photo">
+                  <img src="FAZENDA VISTA VERDE/Cocriadores/PÁG 8 - MARCELO DAGLIO  - FAZENDA VISTA VERDE.jpg" alt="Marcelo Daglio" onerror="this.onerror=null;this.classList.add('load-failed')">
+                </div>
+                <h4>MARCELO DAGLIO</h4>
+                <p>Arquitetura Hotel</p>
+              </div>
+              <div class="cocriador pessoa-card">
+                <div class="person-photo">
+                  <img src="FAZENDA VISTA VERDE/Cocriadores/PÁG 8 - GÁLVEZ E MÁRTON  - FAZENDA VISTA VERDE.jpg" alt="Gálvez e Márton" onerror="this.onerror=null;this.classList.add('load-failed')">
+                </div>
+                <h4>GÁLVEZ E MÁRTON</h4>
+                <p>Residences</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Página: Localização -->
+        <article id="page-localizacao" class="content-page content-page-localizacao">
+          <div class="content-inner content-inner-wide">
+            <div class="localizacao-layout">
+              <div class="localizacao-imagem localizacao-imagem-esquerda">
+                <img src="FAZENDA VISTA VERDE/PÁG 3 - FAZENDA VISTA VERDE_.jpg" alt="Araçoiaba da Serra">
+              </div>
+              <div class="localizacao-texto">
+                <h2>PERTO DE SÃO PAULO,<br>EM MEIO À NATUREZA</h2>
+                <p>Em Araçoiaba da Serra, com fácil acesso pelas Rodovias Raposo Tavares e Pres. Castello Branco, a Fazenda Vista Verde oferece um refúgio para você aproveitar seu tempo com o que realmente importa.</p>
+                <ul class="localizacao-tempos">
+                  <li>Centro de Araçoiaba da Serra - 5 min.</li>
+                  <li>Shopping Iguatemi Sorocaba - 12 min.</li>
+                  <li>Aeroporto Internacional de Viracopos - 1h</li>
+                  <li>São Paulo/SP - 1h30</li>
+                </ul>
+                <p class="localizacao-obs">*Trajeto calculado via Google Maps</p>
+              </div>
+              <div class="localizacao-imagem localizacao-imagem-direita">
+                <a href="https://www.google.com/maps/search/Ara%C3%A7oiaba+da+Serra+SP" target="_blank" rel="noopener" class="localizacao-mapa-wrap">
+                  <img src="FAZENDA VISTA VERDE/localizacão/PÁG 3 - FAZENDA VISTA VERDE.jpg" alt="Foto de Araçoiaba da Serra/SP">
+                  <span class="localizacao-mapa-link">Ver no Google Maps →</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Página: Ficha Técnica -->
+        <article id="page-ficha" class="content-page">
+          <div class="content-inner content-inner-wide">
+            <h2>FICHA TÉCNICA</h2>
+            <div class="ficha-tecnica">
+              <div class="ficha-section">
+                <h3>Área</h3>
+                <ul class="ficha-list-ul">
+                  <li>160 lotes residenciais (Fase 1)</li>
+                  <li>Lotes de 2.000 m² a 2.600 m²</li>
+                </ul>
+                <h3>Localização</h3>
+                <ul class="ficha-list-ul">
+                  <li>Rodovia Raposo Tavares, km 120 — Araçoiaba da Serra/SP</li>
+                </ul>
+              </div>
+              <div class="ficha-section">
+                <h3>Áreas Comuns</h3>
+                <ul class="ficha-list-ul ficha-areas">
+                  <li class="ficha-subtitulo">Hotel Vik Retreats</li>
+                  <li>Fitness</li>
+                  <li>SPA</li>
+                  <li>Restaurantes</li>
+                  <li>Piscina com borda infinita</li>
+                  <li>Espaço de eventos</li>
+                  <li>Vinhedos</li>
+                  <li class="ficha-subtitulo">Piscina de ondas Wavegarden</li>
+                  <li>Praia</li>
+                  <li>Quadras de beach tennis e tênis</li>
+                  <li>Piscinas adulto e infantil</li>
+                  <li>SPA</li>
+                </ul>
+              </div>
+              <div class="ficha-section">
+                <h3>Áreas Comuns</h3>
+                <ul class="ficha-list-ul ficha-areas">
+                  <li>La Susana Beach Club</li>
+                  <li>Museu a céu aberto</li>
+                  <li>Restaurantes</li>
+                  <li>Country Club</li>
+                  <li>Piscinas adulto e infantil</li>
+                  <li>Fitness</li>
+                  <li>Quadras de beach tennis</li>
+                  <li>Quadras de tênis em saibro</li>
+                  <li>Quadras poliesportivas</li>
+                  <li>Campos de futebol</li>
+                  <li>Pista de cooper</li>
+                  <li>Pista de bicicleta</li>
+                  <li>Haras</li>
+                </ul>
+              </div>
+              <div class="ficha-section">
+                <h3>Áreas Comuns</h3>
+                <ul class="ficha-list-ul ficha-areas">
+                  <li>Trilhas para cavalgada</li>
+                  <li>Farmers market</li>
+                  <li>Horta e agrofloresta</li>
+                  <li>Fazendinha</li>
+                  <li>Casa sede</li>
+                  <li>Espaço kids</li>
+                  <li>Capela ecumênica</li>
+                  <li>Espaço pet</li>
+                  <li>Pavilhão de experiências</li>
+                  <li>Heliponto</li>
+                  <li>Portarias 24 horas</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Página: Implantação -->
+        <article id="page-implantacao" class="content-page content-page-implantacao">
+          <div class="content-inner content-inner-wide">
+            <div class="implantacao-layout">
+              <div class="implantacao-col implantacao-texto">
+                <h2>UM PROJETO TÃO INOVADOR QUANTO EXCLUSIVO</h2>
+                <p class="implantacao-intro">Tudo aqui foi pensado para oferecer uma estrutura incomparável para você desfrutar o tempo no seu tempo.</p>
+              </div>
+              <div class="implantacao-col implantacao-imagens">
+                <div class="implantacao-block">
+                  <h3 class="implantacao-block-title">Implantação Fase 1</h3>
+                  <div class="implantacao-block-content">
+                    <button type="button" class="implantacao-img-wrap" onclick="openImagemLightbox('Perspectiva/IMPLANTAÇÃO FASE 1.jpg', 'Implantação Fase 1')" aria-label="Clique para ver imagem em tamanho real">
+                      <img src="Perspectiva/IMPLANTAÇÃO FASE 1.jpg" alt="Implantação Fase 1">
+                      <span class="implantacao-img-hint">Clique para ver em tela cheia</span>
+                    </button>
+                    <ol class="implantacao-legend implantacao-legend-fase1">
+                    <li>Portaria 24 horas</li>
+                    <li>Heliponto</li>
+                    <li>Residences</li>
+                    <li>Pavilhão de experiências</li>
+                    <li>Casa sede</li>
+                    <li>Espaço kids</li>
+                    <li>Farmers market</li>
+                    <li>Fazendinha</li>
+                    <li>Fitness</li>
+                    <li>Country club
+                      <ul>
+                        <li>Restaurante</li>
+                        <li>Piscinas adulto e infantil</li>
+                      </ul>
+                    </li>
+                    <li>Complexo de quadras
+                      <ul>
+                        <li>Quadras poliesportivas</li>
+                        <li>Quadras de tênis rápidas</li>
+                        <li>Quadras de tênis em saibro</li>
+                        <li>Campos de futebol</li>
+                      </ul>
+                    </li>
+                    <li>Haras</li>
+                    <li>Trilhas e cachoeira</li>
+                    <li>Capela ecumênica com mirante contemplativo</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="implantacao-block">
+                  <h3 class="implantacao-block-title">Implantação 2</h3>
+                  <div class="implantacao-block-content">
+                    <button type="button" class="implantacao-img-wrap" onclick="openImagemLightbox('Perspectiva/IMPLANTAÇÃO 2.png', 'Implantação 2')" aria-label="Clique para ver imagem em tamanho real">
+                      <img src="Perspectiva/IMPLANTAÇÃO 2.png" alt="Implantação 2">
+                      <span class="implantacao-img-hint">Clique para ver em tela cheia</span>
+                    </button>
+                    <ol class="implantacao-legend implantacao-legend-fase2">
+                    <li>Praia
+                      <ul>
+                        <li>La Susana Beach Club</li>
+                        <li>SPA</li>
+                        <li>Piscinas adulto e infantil</li>
+                        <li>Quadras de tênis e beach tennis</li>
+                      </ul>
+                    </li>
+                    <li>Hotel Vik Retreats</li>
+                    <li>Vinhedos</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="implantacao-nota">Representação artística do mapa de implantação.</p>
+          </div>
+        </article>
+
+        <!-- Página: Perspectiva - Carrossel -->
+        <article id="page-perspectiva" class="content-page content-page-full">
+          <div class="carousel-container" tabindex="0">
+            <button class="carousel-btn carousel-prev" aria-label="Anterior">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 18l-6-6 6-6"/>
+              </svg>
+            </button>
+            <button class="carousel-btn carousel-next" aria-label="Próximo">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 18l6-6-6-6"/>
+              </svg>
+            </button>
+            <div class="carousel-track">
+              <div class="carousel-slide active" data-index="0">
+                <img src="Perspectiva/CAPELA ECUMENICA.jpg" alt="Capela Ecumênica">
+                <div class="carousel-caption">Capela Ecumênica</div>
+              </div>
+              <div class="carousel-slide" data-index="1">
+                <img src="Perspectiva/CAPELA ECUMENICA (2).jpg" alt="Capela Ecumênica">
+                <div class="carousel-caption">Capela Ecumênica</div>
+              </div>
+              <div class="carousel-slide" data-index="2">
+                <img src="Perspectiva/CAPELA ECUMENICA (3).jpg" alt="Capela Ecumênica">
+                <div class="carousel-caption">Capela Ecumênica</div>
+              </div>
+              <div class="carousel-slide" data-index="3">
+                <img src="Perspectiva/CASA SEDE.jpg" alt="Casa Sede">
+                <div class="carousel-caption">Casa Sede</div>
+              </div>
+              <div class="carousel-slide" data-index="4">
+                <img src="Perspectiva/CASA SEDE (2).jpg" alt="Casa Sede">
+                <div class="carousel-caption">Casa Sede</div>
+              </div>
+              <div class="carousel-slide" data-index="5">
+                <img src="Perspectiva/CASA SEDE (3).jpg" alt="Casa Sede">
+                <div class="carousel-caption">Casa Sede</div>
+              </div>
+              <div class="carousel-slide" data-index="6">
+                <img src="Perspectiva/CASA SEDE - VISTA AÉREA.jpg" alt="Casa Sede - Vista Aérea">
+                <div class="carousel-caption">Casa Sede - Vista Aérea</div>
+              </div>
+              <div class="carousel-slide" data-index="7">
+                <img src="Perspectiva/COMPLEXO DE LAGOS.jpg" alt="Complexo de Lagos">
+                <div class="carousel-caption">Complexo de Lagos</div>
+              </div>
+              <div class="carousel-slide" data-index="8">
+                <img src="Perspectiva/COMPLEXO DE QUADRAS.jpg" alt="Complexo de Quadras">
+                <div class="carousel-caption">Complexo de Quadras</div>
+              </div>
+              <div class="carousel-slide" data-index="9">
+                <img src="Perspectiva/COUNTRY CLUB - ENTRADA.jpg" alt="Country Club - Entrada">
+                <div class="carousel-caption">Country Club - Entrada</div>
+              </div>
+              <div class="carousel-slide" data-index="10">
+                <img src="Perspectiva/COUNTRY CLUB - LOUNGE.jpg" alt="Country Club - Lounge">
+                <div class="carousel-caption">Country Club - Lounge</div>
+              </div>
+              <div class="carousel-slide" data-index="11">
+                <img src="Perspectiva/COUNTRY CLUB - LOUNGE (2).jpg" alt="Country Club - Lounge">
+                <div class="carousel-caption">Country Club - Lounge</div>
+              </div>
+              <div class="carousel-slide" data-index="12">
+                <img src="Perspectiva/FARMERS MARKET.jpg" alt="Farmers Market">
+                <div class="carousel-caption">Farmers Market</div>
+              </div>
+              <div class="carousel-slide" data-index="13">
+                <img src="Perspectiva/FARMERS MARKET (2).jpg" alt="Farmers Market">
+                <div class="carousel-caption">Farmers Market</div>
+              </div>
+              <div class="carousel-slide" data-index="14">
+                <img src="Perspectiva/FARMERS MARKET (3).jpg" alt="Farmers Market">
+                <div class="carousel-caption">Farmers Market</div>
+              </div>
+              <div class="carousel-slide" data-index="15">
+                <img src="Perspectiva/FITNESS.jpg" alt="Fitness">
+                <div class="carousel-caption">Fitness</div>
+              </div>
+              <div class="carousel-slide" data-index="16">
+                <img src="Perspectiva/FITNESS (2).jpg" alt="Fitness">
+                <div class="carousel-caption">Fitness</div>
+              </div>
+              <div class="carousel-slide" data-index="17">
+                <img src="Perspectiva/HARAS_Entrada.jpg" alt="Haras - Entrada">
+                <div class="carousel-caption">Haras - Entrada</div>
+              </div>
+              <div class="carousel-slide" data-index="18">
+                <img src="Perspectiva/HARAS_Aérea.jpg" alt="Haras - Vista Aérea">
+                <div class="carousel-caption">Haras - Vista Aérea</div>
+              </div>
+              <div class="carousel-slide" data-index="19">
+                <img src="Perspectiva/HOTEL VIK RETRATS - VISTA LATERAL.png" alt="Hotel Vik Retreats - Vista Lateral">
+                <div class="carousel-caption">Hotel Vik Retreats - Vista Lateral</div>
+              </div>
+              <div class="carousel-slide" data-index="20">
+                <img src="Perspectiva/HOTEL VIK RETREATS - ACESSO.png" alt="Hotel Vik Retreats - Acesso">
+                <div class="carousel-caption">Hotel Vik Retreats - Acesso</div>
+              </div>
+              <div class="carousel-slide" data-index="21">
+                <img src="Perspectiva/HOTEL VIK RETREATS FACHADA.png" alt="Hotel Vik Retreats - Fachada">
+                <div class="carousel-caption">Hotel Vik Retreats - Fachada</div>
+              </div>
+              <div class="carousel-slide" data-index="22">
+                <img src="Perspectiva/HOTEL VIK RETREATS VINHEDOS.png" alt="Hotel Vik Retreats - Vinhedos">
+                <div class="carousel-caption">Hotel Vik Retreats - Vinhedos</div>
+              </div>
+              <div class="carousel-slide" data-index="23">
+                <img src="Perspectiva/IMPLANTAÇÃO FASE 1.jpg" alt="Implantação Fase 1">
+                <div class="carousel-caption">Implantação Fase 1</div>
+              </div>
+              <div class="carousel-slide" data-index="24">
+                <img src="Perspectiva/IMPLANTAÇÃO 2.png" alt="Implantação">
+                <div class="carousel-caption">Implantação</div>
+              </div>
+              <div class="carousel-slide" data-index="25">
+                <img src="Perspectiva/KIDS_EXTERNA.jpg" alt="Espaço Kids - Externa">
+                <div class="carousel-caption">Espaço Kids - Externa</div>
+              </div>
+              <div class="carousel-slide" data-index="26">
+                <img src="Perspectiva/KIDS_INTERNA.jpg" alt="Espaço Kids - Interna">
+                <div class="carousel-caption">Espaço Kids - Interna</div>
+              </div>
+              <div class="carousel-slide" data-index="27">
+                <img src="Perspectiva/LA SUSANA BEACH CLUB.png" alt="La Susana Beach Club">
+                <div class="carousel-caption">La Susana Beach Club</div>
+              </div>
+              <div class="carousel-slide" data-index="28">
+                <img src="Perspectiva/PAVILHÃO DE EXPERIÊNCIAS.jpg" alt="Pavilhão de Experiências">
+                <div class="carousel-caption">Pavilhão de Experiências</div>
+              </div>
+              <div class="carousel-slide" data-index="29">
+                <img src="Perspectiva/PAVILHÃO DE EXPERIENCIAS.jpg" alt="Pavilhão de Experiências">
+                <div class="carousel-caption">Pavilhão de Experiências</div>
+              </div>
+              <div class="carousel-slide" data-index="30">
+                <img src="Perspectiva/PISCINA DE ONDAS.png" alt="Piscina de Ondas">
+                <div class="carousel-caption">Piscina de Ondas</div>
+              </div>
+              <div class="carousel-slide" data-index="31">
+                <img src="Perspectiva/PISCINAS ADULTO E INFANTIL.jpg" alt="Piscinas Adulto e Infantil">
+                <div class="carousel-caption">Piscinas Adulto e Infantil</div>
+              </div>
+              <div class="carousel-slide" data-index="32">
+                <img src="Perspectiva/PORTARIA_1.jpg" alt="Portaria">
+                <div class="carousel-caption">Portaria</div>
+              </div>
+              <div class="carousel-slide" data-index="33">
+                <img src="Perspectiva/PORTARIA_2.jpg" alt="Portaria">
+                <div class="carousel-caption">Portaria</div>
+              </div>
+              <div class="carousel-slide" data-index="34">
+                <img src="Perspectiva/PRAIA.png" alt="Praia">
+                <div class="carousel-caption">Praia</div>
+              </div>
+              <div class="carousel-slide" data-index="35">
+                <img src="Perspectiva/PRAIA (2).png" alt="Praia">
+                <div class="carousel-caption">Praia</div>
+              </div>
+              <div class="carousel-slide" data-index="36">
+                <img src="Perspectiva/PRAIA VISTA - VISTA AÉREA.png" alt="Praia Vista - Vista Aérea">
+                <div class="carousel-caption">Praia Vista - Vista Aérea</div>
+              </div>
+              <div class="carousel-slide" data-index="37">
+                <img src="Perspectiva/VISTA ÁREA.jpg" alt="Vista Aérea">
+                <div class="carousel-caption">Vista Aérea</div>
+              </div>
+            </div>
+            <div class="carousel-dots"></div>
+            <div class="carousel-counter"></div>
+          </div>
+        </article>
+      </div>
+    </main>
+  </section>
+
+  <!-- Lightbox para ampliar imagens -->
+  <div id="lightbox" class="lightbox" aria-hidden="true" onclick="closeImagemLightbox(event)">
+    <button type="button" class="lightbox-close" onclick="closeImagemLightbox()" aria-label="Fechar">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </button>
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <img id="lightbox-img" src="" alt="">
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
