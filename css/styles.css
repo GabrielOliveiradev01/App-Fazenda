@@ -452,6 +452,10 @@ body {
   margin-top: 0.5rem;
 }
 
+.amenities-areas-comuns {
+  grid-template-columns: repeat(13, 1fr);
+}
+
 .amenity-item {
   display: flex;
   flex-direction: column;
@@ -478,8 +482,18 @@ body {
 }
 
 @media (min-width: 768px) {
-  .amenities-icons-grid {
+  .amenities-icons-grid:not(.amenities-areas-comuns) {
     grid-template-columns: repeat(auto-fill, minmax(52px, 52px));
+  }
+
+  .amenities-areas-comuns {
+    grid-template-columns: repeat(13, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .amenities-areas-comuns {
+    grid-template-columns: repeat(7, 1fr);
   }
 }
 
