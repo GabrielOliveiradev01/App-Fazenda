@@ -4,19 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fazenda Vista Verde</title>
-  <link rel="stylesheet" href="css/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Inter: corpo e títulos -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <!-- Tela 1: Splash -->
-  <section id="screen-splash" class="screen active">
+  <!-- Tela 1: Splash — toque em qualquer lugar para entrar -->
+  <section id="screen-splash" class="screen active screen-splash" role="button" tabindex="0" aria-label="Entrar no aplicativo" onclick="goTo('screen-app')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();goTo('screen-app');}">
     <div class="screen-1-background"></div>
     <div class="screen-1-symbol" aria-hidden="true"></div>
     <div class="screen-1-content">
       <img src="LogoFazenda.png" alt="Fazenda Vista Verde" class="logo">
-      <button class="btn-iniciar" onclick="goTo('screen-app')">Iniciar</button>
     </div>
   </section>
 
@@ -41,8 +41,28 @@
         <span>Voltar</span>
       </button>
       <nav class="sidebar-menu">
+        <button class="menu-item" data-page="page-localizacao">
+          <span class="menu-item-text">Localização</span>
+          <span class="menu-item-line"></span>
+        </button>
+        <button class="menu-item" data-page="page-ficha">
+          <span class="menu-item-text">Ficha Técnica</span>
+          <span class="menu-item-line"></span>
+        </button>
+        <button class="menu-item" data-page="page-cocriadores">
+          <span class="menu-item-text">Cocriadores</span>
+          <span class="menu-item-line"></span>
+        </button>
+        <button class="menu-item" data-page="page-implantacao">
+          <span class="menu-item-text">Implantação</span>
+          <span class="menu-item-line"></span>
+        </button>
         <button class="menu-item" data-page="page-amenities">
           <span class="menu-item-text">Amenities</span>
+          <span class="menu-item-line"></span>
+        </button>
+        <button class="menu-item" data-page="page-perspectiva">
+          <span class="menu-item-text">Perspectiva</span>
           <span class="menu-item-line"></span>
         </button>
         <button class="menu-item" data-page="page-surf">
@@ -61,172 +81,155 @@
           <span class="menu-item-text">LN Urbanismo</span>
           <span class="menu-item-line"></span>
         </button>
-        <button class="menu-item" data-page="page-cocriadores">
-          <span class="menu-item-text">Cocriadores</span>
-          <span class="menu-item-line"></span>
-        </button>
-        <button class="menu-item" data-page="page-perspectiva">
-          <span class="menu-item-text">Perspectiva</span>
-          <span class="menu-item-line"></span>
-        </button>
-        <button class="menu-item" data-page="page-implantacao">
-          <span class="menu-item-text">Implantação</span>
-          <span class="menu-item-line"></span>
-        </button>
-        <button class="menu-item" data-page="page-ficha">
-          <span class="menu-item-text">Ficha Técnica</span>
-          <span class="menu-item-line"></span>
-        </button>
-        <button class="menu-item" data-page="page-localizacao">
-          <span class="menu-item-text">Localização</span>
-          <span class="menu-item-line"></span>
-        </button>
       </nav>
     </aside>
     <main class="content-area">
       <div class="content-background"></div>
       <div class="content-pages">
-        <!-- Página: Amenities -->
-        <article id="page-amenities" class="content-page active">
+        <!-- Página: Amenities (layout alinhado à referência visual) -->
+        <article id="page-amenities" class="content-page content-page-amenities">
           <div class="content-inner content-inner-wide">
-            <h2>AMENITIES E FACILITIES QUE HARMONIZAM COM SEU LIFESTYLE</h2>
-            <div class="subsection">
-              <h3>HOTEL VIK RETREATS</h3>
-              <div class="amenities-icons-row">
-                <div class="amenity-item">
-                  <img src="icones-png/WINE_EXP.pdf.png" alt="" class="amenity-icon">
-                  <span class="amenity-name">Wine Experience</span>
-                </div>
-                <div class="amenity-item">
-                  <img src="icones-png/RESTAURANTES.pdf.png" alt="" class="amenity-icon">
-                  <span class="amenity-name">Restaurante</span>
-                </div>
-                <div class="amenity-item">
-                  <img src="icones-png/SPA.pdf.png" alt="" class="amenity-icon">
-                  <span class="amenity-name">SPA</span>
-                </div>
-                <div class="amenity-item">
-                  <img src="icones-png/PISCINA_BORDA_INFINITA.pdf.png" alt="" class="amenity-icon">
-                  <span class="amenity-name">Piscina com borda infinita</span>
-                </div>
-                <div class="amenity-item">
-                  <img src="icones-png/FITNESS.pdf.png" alt="" class="amenity-icon">
-                  <span class="amenity-name">Fitness</span>
-                </div>
-                <div class="amenity-item">
-                  <img src="icones-png/ESPACO_EVENTOS.pdf.png" alt="" class="amenity-icon">
-                  <span class="amenity-name">Espaço de eventos</span>
+            <header class="amenities-header">
+              <h2 class="amenities-hero-title">
+                <span class="amenities-hero-line">Amenities e facilities</span>
+                <span class="amenities-hero-line">que harmonizam</span>
+                <span class="amenities-hero-line">com seu lifestyle</span>
+              </h2>
+              <div class="amenities-vik-box" aria-labelledby="amenities-vik-label">
+                <p class="amenities-vik-label" id="amenities-vik-label">Hotel Vik Retreats</p>
+                <div class="amenities-vik-icons">
+                  <div class="amenity-item">
+                    <img src="icones-png/WINE_EXP.pdf.png" alt="" class="amenity-icon">
+                    <span class="amenity-name">Wine Experience</span>
+                  </div>
+                  <div class="amenity-item">
+                    <img src="icones-png/RESTAURANTES.pdf.png" alt="" class="amenity-icon">
+                    <span class="amenity-name">Restaurante</span>
+                  </div>
+                  <div class="amenity-item">
+                    <img src="icones-png/SPA.pdf.png" alt="" class="amenity-icon">
+                    <span class="amenity-name">SPA</span>
+                  </div>
+                  <div class="amenity-item">
+                    <img src="icones-png/PISCINA_BORDA_INFINITA.pdf.png" alt="" class="amenity-icon">
+                    <span class="amenity-name">Piscina com borda infinita</span>
+                  </div>
+                  <div class="amenity-item">
+                    <img src="icones-png/FITNESS.pdf.png" alt="" class="amenity-icon">
+                    <span class="amenity-name">Fitness</span>
+                  </div>
+                  <div class="amenity-item">
+                    <img src="icones-png/ESPACO_EVENTOS.pdf.png" alt="" class="amenity-icon">
+                    <span class="amenity-name">Espaço de eventos</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="subsection">
-              <h3>Áreas Comuns</h3>
-              <div class="amenities-icons-grid amenities-areas-comuns">
-                <div class="amenity-item">
+            </header>
+            <div class="amenities-main-grid" role="list">
+                <div class="amenity-item" role="listitem">
                   <img src="icones-png/SURF_BEACH.pdf.png" alt="" class="amenity-icon">
                   <span class="amenity-name">Piscina de ondas</span>
                 </div>
-                <div class="amenity-item">
+                <div class="amenity-item" role="listitem">
                   <img src="icones-png/PISCINA.pdf.png" alt="" class="amenity-icon">
                   <span class="amenity-name">Piscinas adulto e infantil</span>
                 </div>
-                <div class="amenity-item">
+                <div class="amenity-item" role="listitem">
                   <img src="icones-png/RESTAURANTES.pdf.png" alt="" class="amenity-icon">
                   <span class="amenity-name">Restaurantes</span>
                 </div>
-                <div class="amenity-item">
+                <div class="amenity-item" role="listitem">
                   <img src="icones-png/ARTE.pdf.png" alt="" class="amenity-icon">
                   <span class="amenity-name">Museu a céu aberto</span>
                 </div>
-                <div class="amenity-item">
+                <div class="amenity-item" role="listitem">
                   <img src="icones-png/LA_SUSANA_BEACH_CLUB.pdf.png" alt="" class="amenity-icon">
                   <span class="amenity-name">La Susana Beach Club</span>
                 </div>
-                <div class="amenity-item">
+                <div class="amenity-item" role="listitem">
                   <img src="icones-png/SPA.pdf.png" alt="" class="amenity-icon">
                   <span class="amenity-name">SPA</span>
                 </div>
-                <div class="amenity-item">
+                <div class="amenity-item" role="listitem">
                   <img src="icones-png/BEACH_TENNIS.pdf.png" alt="" class="amenity-icon">
-                  <span class="amenity-name">Quadras de beach tennis e tênis</span>
+                  <span class="amenity-name">Quadras de beach tennis</span>
                 </div>
-                <div class="amenity-item">
+                <div class="amenity-item" role="listitem">
                   <img src="icones-png/QUADRA_POLIESPORTIVA.pdf.png" alt="" class="amenity-icon">
                   <span class="amenity-name">Quadras poliesportivas</span>
                 </div>
-                <div class="amenity-item">
-                  <img src="icones-png/CAMPOS DE FUTEBOL.pdf.png" alt="" class="amenity-icon">
-                  <span class="amenity-name">Campos de futebol</span>
-                </div>
-                <div class="amenity-item">
-                  <img src="icones-png/FITNESS.pdf.png" alt="" class="amenity-icon">
-                  <span class="amenity-name">Fitness</span>
-                </div>
-                <div class="amenity-item">
-                  <img src="icones-png/PISTA_COOPER.pdf.png" alt="" class="amenity-icon">
-                  <span class="amenity-name">Pista de cooper</span>
-                </div>
-                <div class="amenity-item">
-                  <img src="icones-png/PISTA_BICICLETA.pdf.png" alt="" class="amenity-icon">
-                  <span class="amenity-name">Pista de bicicleta</span>
-                </div>
-                <div class="amenity-item">
-                  <img src="icones-png/TRILHA_CAVALOS.pdf.png" alt="" class="amenity-icon">
-                  <span class="amenity-name">Trilhas de cavalos</span>
-                </div>
-                <div class="amenity-item">
-                  <img src="icones-png/SALAO_JOGOS.pdf.png" alt="" class="amenity-icon">
-                  <span class="amenity-name">Salão de jogos</span>
-                </div>
-                <div class="amenity-item">
-                  <img src="icones-png/CAPELA_ECUMENICA.pdf.png" alt="" class="amenity-icon">
-                  <span class="amenity-name">Capela ecumênica</span>
-                </div>
-                <div class="amenity-item">
-                  <img src="icones-png/FARMERS_MARKET.pdf.png" alt="" class="amenity-icon">
-                  <span class="amenity-name">Farmers market</span>
-                </div>
-                <div class="amenity-item">
-                  <img src="icones-png/HORTA_ORG_AGROFLORESTA.pdf.png" alt="" class="amenity-icon">
-                  <span class="amenity-name">Horta orgânica e agrofloresta</span>
-                </div>
-                <div class="amenity-item">
-                  <img src="icones-png/FAZENDINHA.pdf.png" alt="" class="amenity-icon">
-                  <span class="amenity-name">Fazendinha</span>
-                </div>
-                <div class="amenity-item">
-                  <img src="icones-png/HARAS.pdf.png" alt="" class="amenity-icon">
-                  <span class="amenity-name">Haras</span>
-                </div>
-                <div class="amenity-item">
-                  <img src="icones-png/PAVILHAO_EXPERIENCIAS.pdf.png" alt="" class="amenity-icon">
-                  <span class="amenity-name">Pavilhão de experiências</span>
-                </div>
-                <div class="amenity-item">
-                  <img src="icones-png/CASA_SEDE.pdf.png" alt="" class="amenity-icon">
-                  <span class="amenity-name">Casa sede</span>
-                </div>
-                <div class="amenity-item">
-                  <img src="icones-png/HELIPONTO.pdf.png" alt="" class="amenity-icon">
-                  <span class="amenity-name">Heliponto</span>
-                </div>
-                <div class="amenity-item">
-                  <img src="icones-png/PORTARIA_24H.pdf.png" alt="" class="amenity-icon">
-                  <span class="amenity-name">Portaria 24h</span>
-                </div>
-                <div class="amenity-item">
-                  <img src="icones-png/ESPACO_PET.pdf.png" alt="" class="amenity-icon">
-                  <span class="amenity-name">Espaço pet</span>
-                </div>
-                <div class="amenity-item">
-                  <img src="icones-png/ESPACO_KIDS.pdf.png" alt="" class="amenity-icon">
-                  <span class="amenity-name">Espaço kids</span>
-                </div>
-                <div class="amenity-item">
+                <div class="amenity-item" role="listitem">
                   <img src="icones-png/TENIS_SAIBRO.pdf.png" alt="" class="amenity-icon">
                   <span class="amenity-name">Quadras de tênis em saibro</span>
                 </div>
-              </div>
+                <div class="amenity-item" role="listitem">
+                  <img src="icones-png/CAMPOS DE FUTEBOL.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Campos de futebol</span>
+                </div>
+                <div class="amenity-item" role="listitem">
+                  <img src="icones-png/FITNESS.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Fitness</span>
+                </div>
+                <div class="amenity-item" role="listitem">
+                  <img src="icones-png/PISTA_COOPER.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Pista de cooper</span>
+                </div>
+                <div class="amenity-item" role="listitem">
+                  <img src="icones-png/PISTA_BICICLETA.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Pista de bicicleta</span>
+                </div>
+                <div class="amenity-item" role="listitem">
+                  <img src="icones-png/TRILHA_CAVALOS.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Trilha de cavalos</span>
+                </div>
+                <div class="amenity-item" role="listitem">
+                  <img src="icones-png/SALAO_JOGOS.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Salão de jogos</span>
+                </div>
+                <div class="amenity-item" role="listitem">
+                  <img src="icones-png/CAPELA_ECUMENICA.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Capela ecumênica</span>
+                </div>
+                <div class="amenity-item" role="listitem">
+                  <img src="icones-png/FARMERS_MARKET.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Farmers market</span>
+                </div>
+                <div class="amenity-item" role="listitem">
+                  <img src="icones-png/HORTA_ORG_AGROFLORESTA.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Horta orgânica e agrofloresta</span>
+                </div>
+                <div class="amenity-item" role="listitem">
+                  <img src="icones-png/FAZENDINHA.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Fazendinha</span>
+                </div>
+                <div class="amenity-item" role="listitem">
+                  <img src="icones-png/HARAS.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Haras</span>
+                </div>
+                <div class="amenity-item" role="listitem">
+                  <img src="icones-png/PAVILHAO_EXPERIENCIAS.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Pavilhão de experiências</span>
+                </div>
+                <div class="amenity-item" role="listitem">
+                  <img src="icones-png/CASA_SEDE.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Casa sede</span>
+                </div>
+                <div class="amenity-item" role="listitem">
+                  <img src="icones-png/HELIPONTO.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Heliponto</span>
+                </div>
+                <div class="amenity-item" role="listitem">
+                  <img src="icones-png/PORTARIA_24H.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Portaria 24h</span>
+                </div>
+                <div class="amenity-item" role="listitem">
+                  <img src="icones-png/ESPACO_PET.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Espaço pet</span>
+                </div>
+                <div class="amenity-item" role="listitem">
+                  <img src="icones-png/ESPACO_KIDS.pdf.png" alt="" class="amenity-icon">
+                  <span class="amenity-name">Espaço kids</span>
+                </div>
             </div>
           </div>
         </article>
@@ -402,7 +405,7 @@
         </article>
 
         <!-- Página: Localização -->
-        <article id="page-localizacao" class="content-page content-page-localizacao">
+        <article id="page-localizacao" class="content-page content-page-localizacao active">
           <div class="content-inner content-inner-wide">
             <div class="localizacao-layout">
               <div class="localizacao-imagem localizacao-imagem-esquerda">

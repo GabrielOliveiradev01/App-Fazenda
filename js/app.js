@@ -83,7 +83,7 @@ document.addEventListener('keydown', function(e) {
 // Sempre abrir apenas a tela inicial (splash)
 document.addEventListener('DOMContentLoaded', function() {
   goTo('screen-splash');
-  const firstMenuItem = document.querySelector('.menu-item[data-page="page-amenities"]');
+  const firstMenuItem = document.querySelector('.menu-item[data-page="page-localizacao"]');
   if (firstMenuItem) firstMenuItem.classList.add('active');
   initCarousel();
 });
