@@ -17,6 +17,7 @@
     <div class="screen-1-symbol" aria-hidden="true"></div>
     <div class="screen-1-content">
       <img src="LogoFazenda.png" alt="Fazenda Vista Verde" class="logo">
+      <p class="tagline"><strong>Faça p(arte)</strong></p>
     </div>
   </section>
 
@@ -41,28 +42,12 @@
         <span>Voltar</span>
       </button>
       <nav class="sidebar-menu">
-        <button class="menu-item" data-page="page-localizacao">
-          <span class="menu-item-text">Localização</span>
+        <button class="menu-item" data-page="page-contexto">
+          <span class="menu-item-text">Sobre o projeto</span>
           <span class="menu-item-line"></span>
         </button>
-        <button class="menu-item" data-page="page-ficha">
-          <span class="menu-item-text">Ficha Técnica</span>
-          <span class="menu-item-line"></span>
-        </button>
-        <button class="menu-item" data-page="page-cocriadores">
-          <span class="menu-item-text">Cocriadores</span>
-          <span class="menu-item-line"></span>
-        </button>
-        <button class="menu-item" data-page="page-implantacao">
-          <span class="menu-item-text">Implantação</span>
-          <span class="menu-item-line"></span>
-        </button>
-        <button class="menu-item" data-page="page-amenities">
-          <span class="menu-item-text">Amenities</span>
-          <span class="menu-item-line"></span>
-        </button>
-        <button class="menu-item" data-page="page-perspectiva">
-          <span class="menu-item-text">Perspectiva</span>
+        <button class="menu-item" data-page="page-vik">
+          <span class="menu-item-text">VIK Retreats</span>
           <span class="menu-item-line"></span>
         </button>
         <button class="menu-item" data-page="page-surf">
@@ -77,6 +62,26 @@
           <span class="menu-item-text">Equestrian Center</span>
           <span class="menu-item-line"></span>
         </button>
+        <button class="menu-item" data-page="page-amenities">
+          <span class="menu-item-text">Amenities</span>
+          <span class="menu-item-line"></span>
+        </button>
+        <button class="menu-item" data-page="page-perspectiva">
+          <span class="menu-item-text">Perspectiva</span>
+          <span class="menu-item-line"></span>
+        </button>
+        <button class="menu-item" data-page="page-implantacao">
+          <span class="menu-item-text">Implantação</span>
+          <span class="menu-item-line"></span>
+        </button>
+        <button class="menu-item" data-page="page-localizacao">
+          <span class="menu-item-text">Localização</span>
+          <span class="menu-item-line"></span>
+        </button>
+        <button class="menu-item" data-page="page-cocriadores">
+          <span class="menu-item-text">Cocriadores</span>
+          <span class="menu-item-line"></span>
+        </button>
         <button class="menu-item" data-page="page-ln">
           <span class="menu-item-text">LN Urbanismo</span>
           <span class="menu-item-line"></span>
@@ -86,6 +91,46 @@
     <main class="content-area">
       <div class="content-background"></div>
       <div class="content-pages">
+        <!-- Página: Contexto do Projeto -->
+        <article id="page-contexto" class="content-page content-page-contexto">
+          <div class="content-inner content-inner-wide">
+            <div class="contexto-layout">
+              <div class="contexto-texto">
+                <h2>FAZENDA VISTA VERDE</h2>
+                <p>A Fazenda Vista Verde é um convite ao encanto, um lugar onde a natureza abraça quem busca sossego sem abrir mão da exclusividade.</p>
+                <p>Um refúgio de rara beleza, a poucos quilômetros de São Paulo, e a mundos de distância da correria.</p>
+                <p>Aqui, o tempo corre em outro ritmo. A paisagem inspira calma, enquanto experiências inesquecíveis preenchem os dias com leveza e encontros vibrantes, cada detalhe foi pensado para transformar o cotidiano em algo extraordinário</p>
+                <button type="button" class="btn-primary btn-video" onclick="openVideoModal()" aria-label="Ver vídeo do projeto">
+                  Ver vídeo do projeto
+                </button>
+              </div>
+              <div class="contexto-media" aria-hidden="true">
+                <div class="contexto-media-card"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Página: VIK Retreats -->
+        <article id="page-vik" class="content-page content-page-vik active">
+          <div class="content-inner content-inner-wide">
+            <div class="contexto-layout">
+              <div class="contexto-texto">
+                <h2>VIK RETREATS</h2>
+                <p>No coração de uma paisagem que mais parece uma tela viva, o Hotel Vik Retreats é um convite a respirar arte, sentir a natureza e se entregar aos sabores que fascinam a alma.</p>
+                <p>Aqui, cada detalhe compõe uma experiência sensorial única – dos vinhos premiados às obras que dialogam com o olhar, da gastronomia refinada ao conforto que acolhe e encanta.</p>
+                <p>Tudo isso, a poucos passos de casa, em um refúgio onde o extraordinário se torna parte do cotidiano</p>
+                <button type="button" class="btn-primary btn-video" onclick="openVikVideoModal()" aria-label="Ver vídeo do VIK Retreats">
+                  Ver vídeo do VIK Retreats
+                </button>
+              </div>
+              <div class="contexto-media" aria-hidden="true">
+                <div class="contexto-media-card"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
         <!-- Página: Amenities (layout alinhado à referência visual) -->
         <article id="page-amenities" class="content-page content-page-amenities">
           <div class="content-inner content-inner-wide">
@@ -95,32 +140,33 @@
                 <span class="amenities-hero-line">que harmonizam</span>
                 <span class="amenities-hero-line">com seu lifestyle</span>
               </h2>
+              <p class="amenities-lotes">Lotes de 2.000 m² a 2.600 m²</p>
               <div class="amenities-vik-box" aria-labelledby="amenities-vik-label">
                 <p class="amenities-vik-label" id="amenities-vik-label">Hotel Vik Retreats</p>
                 <div class="amenities-vik-icons">
                   <div class="amenity-item">
-                    <img src="icones-png/WINE_EXP.pdf.png" alt="" class="amenity-icon">
-                    <span class="amenity-name">Wine Experience</span>
-                  </div>
-                  <div class="amenity-item">
-                    <img src="icones-png/RESTAURANTES.pdf.png" alt="" class="amenity-icon">
-                    <span class="amenity-name">Restaurante</span>
-                  </div>
-                  <div class="amenity-item">
-                    <img src="icones-png/SPA.pdf.png" alt="" class="amenity-icon">
-                    <span class="amenity-name">SPA</span>
-                  </div>
-                  <div class="amenity-item">
-                    <img src="icones-png/PISCINA_BORDA_INFINITA.pdf.png" alt="" class="amenity-icon">
+                    <img src="assets/vik-icons/piscina-borda-infinita.png" alt="" class="amenity-icon">
                     <span class="amenity-name">Piscina com borda infinita</span>
                   </div>
                   <div class="amenity-item">
-                    <img src="icones-png/FITNESS.pdf.png" alt="" class="amenity-icon">
-                    <span class="amenity-name">Fitness</span>
+                    <img src="assets/vik-icons/spa.png" alt="" class="amenity-icon">
+                    <span class="amenity-name">SPA</span>
                   </div>
                   <div class="amenity-item">
-                    <img src="icones-png/ESPACO_EVENTOS.pdf.png" alt="" class="amenity-icon">
-                    <span class="amenity-name">Espaço de eventos</span>
+                    <img src="assets/vik-icons/alta-gastronomia.png" alt="" class="amenity-icon">
+                    <span class="amenity-name">Alta gastronomia</span>
+                  </div>
+                  <div class="amenity-item">
+                    <img src="assets/vik-icons/adega-vinhos-vik.png" alt="" class="amenity-icon">
+                    <span class="amenity-name">Adega de vinhos Vik</span>
+                  </div>
+                  <div class="amenity-item">
+                    <img src="assets/vik-icons/wine-experience.png" alt="" class="amenity-icon">
+                    <span class="amenity-name">Wine Experience</span>
+                  </div>
+                  <div class="amenity-item">
+                    <img src="assets/vik-icons/suites-artisticas.png" alt="" class="amenity-icon">
+                    <span class="amenity-name">Suítes artísticas exclusivas</span>
                   </div>
                 </div>
               </div>
@@ -293,6 +339,7 @@
         <!-- Página: LN Urbanismo -->
         <article id="page-ln" class="content-page">
           <div class="content-inner">
+            <img src="ln-logo.png" alt="LN Urbanismo" class="ln-logo">
             <h2>CRIAR NOVOS DESTINOS É CRIAR NOVAS REALIDADES</h2>
             <div class="subsection">
               <p>Porque não se trata só de construir, mas desenvolver espaços, conectar culturas e criar comunidades. Criar novos destinos é criar o novo. Um novo futuro.</p>
@@ -309,8 +356,8 @@
                 <span class="stat-label">De VGV lançado</span>
               </div>
               <div class="stat">
-                <span class="stat-number">15+</span>
-                <span class="stat-label">Empreendimentos entregues nos últimos 10 anos</span>
+                <span class="stat-number">19+</span>
+                <span class="stat-label">Empreendimentos lançados nos últimos 10 anos</span>
               </div>
               <div class="stat">
                 <span class="stat-number">5</span>
@@ -405,7 +452,7 @@
         </article>
 
         <!-- Página: Localização -->
-        <article id="page-localizacao" class="content-page content-page-localizacao active">
+        <article id="page-localizacao" class="content-page content-page-localizacao">
           <div class="content-inner content-inner-wide">
             <div class="localizacao-layout">
               <div class="localizacao-imagem localizacao-imagem-esquerda">
@@ -427,77 +474,6 @@
                   <img src="FAZENDA VISTA VERDE/localizacão/PÁG 3 - FAZENDA VISTA VERDE.jpg" alt="Foto de Araçoiaba da Serra/SP">
                   <span class="localizacao-mapa-link">Ver no Google Maps →</span>
                 </a>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Página: Ficha Técnica -->
-        <article id="page-ficha" class="content-page">
-          <div class="content-inner content-inner-wide">
-            <h2>FICHA TÉCNICA</h2>
-            <div class="ficha-tecnica">
-              <div class="ficha-section">
-                <h3>Área</h3>
-                <ul class="ficha-list-ul">
-                  <li>160 lotes residenciais (Fase 1)</li>
-                  <li>Lotes de 2.000 m² a 2.600 m²</li>
-                </ul>
-                <h3>Localização</h3>
-                <ul class="ficha-list-ul">
-                  <li>Rodovia Raposo Tavares, km 120 — Araçoiaba da Serra/SP</li>
-                </ul>
-              </div>
-              <div class="ficha-section">
-                <h3>Áreas Comuns</h3>
-                <ul class="ficha-list-ul ficha-areas">
-                  <li class="ficha-subtitulo">Hotel Vik Retreats</li>
-                  <li>Fitness</li>
-                  <li>SPA</li>
-                  <li>Restaurantes</li>
-                  <li>Piscina com borda infinita</li>
-                  <li>Espaço de eventos</li>
-                  <li>Vinhedos</li>
-                  <li class="ficha-subtitulo">Piscina de ondas Wavegarden</li>
-                  <li>Praia</li>
-                  <li>Quadras de beach tennis e tênis</li>
-                  <li>Piscinas adulto e infantil</li>
-                  <li>SPA</li>
-                </ul>
-              </div>
-              <div class="ficha-section">
-                <h3>Áreas Comuns</h3>
-                <ul class="ficha-list-ul ficha-areas">
-                  <li>La Susana Beach Club</li>
-                  <li>Museu a céu aberto</li>
-                  <li>Restaurantes</li>
-                  <li>Country Club</li>
-                  <li>Piscinas adulto e infantil</li>
-                  <li>Fitness</li>
-                  <li>Quadras de beach tennis</li>
-                  <li>Quadras de tênis em saibro</li>
-                  <li>Quadras poliesportivas</li>
-                  <li>Campos de futebol</li>
-                  <li>Pista de cooper</li>
-                  <li>Pista de bicicleta</li>
-                  <li>Haras</li>
-                </ul>
-              </div>
-              <div class="ficha-section">
-                <h3>Áreas Comuns</h3>
-                <ul class="ficha-list-ul ficha-areas">
-                  <li>Trilhas para cavalgada</li>
-                  <li>Farmers market</li>
-                  <li>Horta e agrofloresta</li>
-                  <li>Fazendinha</li>
-                  <li>Casa sede</li>
-                  <li>Espaço kids</li>
-                  <li>Capela ecumênica</li>
-                  <li>Espaço pet</li>
-                  <li>Pavilhão de experiências</li>
-                  <li>Heliponto</li>
-                  <li>Portarias 24 horas</li>
-                </ul>
               </div>
             </div>
           </div>
@@ -591,156 +567,148 @@
             </button>
             <div class="carousel-track">
               <div class="carousel-slide active" data-index="0">
-                <img src="Perspectiva/CAPELA ECUMENICA.jpg" alt="Capela Ecumênica">
-                <div class="carousel-caption">Capela Ecumênica</div>
+                <img src="Perspectiva/VISTA ÁREA Posição 1.jpg" alt="Vista Aérea">
+                <div class="carousel-caption">Vista Aérea</div>
               </div>
               <div class="carousel-slide" data-index="1">
-                <img src="Perspectiva/CAPELA ECUMENICA (2).jpg" alt="Capela Ecumênica">
-                <div class="carousel-caption">Capela Ecumênica</div>
+                <img src="Perspectiva/PORTARIA_1 Posição 2.jpg" alt="Portaria">
+                <div class="carousel-caption">Portaria</div>
               </div>
               <div class="carousel-slide" data-index="2">
-                <img src="Perspectiva/CAPELA ECUMENICA (3).jpg" alt="Capela Ecumênica">
-                <div class="carousel-caption">Capela Ecumênica</div>
+                <img src="Perspectiva/PORTARIA_2 Posição 3.jpg" alt="Portaria">
+                <div class="carousel-caption">Portaria</div>
               </div>
               <div class="carousel-slide" data-index="3">
-                <img src="Perspectiva/CASA SEDE.jpg" alt="Casa Sede">
-                <div class="carousel-caption">Casa Sede</div>
+                <img src="Perspectiva/PAVILHÃO DE EXPERIENCIAS Posição 4.jpg" alt="Pavilhão de Experiências">
+                <div class="carousel-caption">Pavilhão de Experiências</div>
               </div>
               <div class="carousel-slide" data-index="4">
-                <img src="Perspectiva/CASA SEDE (2).jpg" alt="Casa Sede">
-                <div class="carousel-caption">Casa Sede</div>
+                <img src="Perspectiva/CASA SEDE - VISTA AÉREA Posição 5.jpg" alt="Casa Sede - Vista Aérea">
+                <div class="carousel-caption">Casa Sede - Vista Aérea</div>
               </div>
               <div class="carousel-slide" data-index="5">
-                <img src="Perspectiva/CASA SEDE (3).jpg" alt="Casa Sede">
+                <img src="Perspectiva/CASA SEDE Posição 6.jpg" alt="Casa Sede">
                 <div class="carousel-caption">Casa Sede</div>
               </div>
               <div class="carousel-slide" data-index="6">
-                <img src="Perspectiva/CASA SEDE - VISTA AÉREA.jpg" alt="Casa Sede - Vista Aérea">
-                <div class="carousel-caption">Casa Sede - Vista Aérea</div>
+                <img src="Perspectiva/CASA SEDE (2) Posição 7.jpg" alt="Casa Sede">
+                <div class="carousel-caption">Casa Sede</div>
               </div>
               <div class="carousel-slide" data-index="7">
-                <img src="Perspectiva/COMPLEXO DE LAGOS.jpg" alt="Complexo de Lagos">
-                <div class="carousel-caption">Complexo de Lagos</div>
+                <img src="Perspectiva/CASA SEDE (3) Posição 8.jpg" alt="Casa Sede">
+                <div class="carousel-caption">Casa Sede</div>
               </div>
               <div class="carousel-slide" data-index="8">
-                <img src="Perspectiva/COMPLEXO DE QUADRAS.jpg" alt="Complexo de Quadras">
-                <div class="carousel-caption">Complexo de Quadras</div>
+                <img src="Perspectiva/KIDS_EXTERNA Posição 9.jpg" alt="Espaço Kids - Externa">
+                <div class="carousel-caption">Espaço Kids - Externa</div>
               </div>
               <div class="carousel-slide" data-index="9">
-                <img src="Perspectiva/COUNTRY CLUB - ENTRADA.jpg" alt="Country Club - Entrada">
-                <div class="carousel-caption">Country Club - Entrada</div>
+                <img src="Perspectiva/KIDS_INTERNA Posição 10.jpg" alt="Espaço Kids - Interna">
+                <div class="carousel-caption">Espaço Kids - Interna</div>
               </div>
               <div class="carousel-slide" data-index="10">
-                <img src="Perspectiva/COUNTRY CLUB - LOUNGE.jpg" alt="Country Club - Lounge">
-                <div class="carousel-caption">Country Club - Lounge</div>
+                <img src="Perspectiva/FARMERS MARKET Posição 11.jpg" alt="Farmers Market">
+                <div class="carousel-caption">Farmers Market</div>
               </div>
               <div class="carousel-slide" data-index="11">
-                <img src="Perspectiva/COUNTRY CLUB - LOUNGE (2).jpg" alt="Country Club - Lounge">
-                <div class="carousel-caption">Country Club - Lounge</div>
+                <img src="Perspectiva/FARMERS MARKET (2) Posição 12.jpg" alt="Farmers Market">
+                <div class="carousel-caption">Farmers Market</div>
               </div>
               <div class="carousel-slide" data-index="12">
-                <img src="Perspectiva/FARMERS MARKET.jpg" alt="Farmers Market">
+                <img src="Perspectiva/FARMERS MARKET (3) Posição 13.jpg" alt="Farmers Market">
                 <div class="carousel-caption">Farmers Market</div>
               </div>
               <div class="carousel-slide" data-index="13">
-                <img src="Perspectiva/FARMERS MARKET (2).jpg" alt="Farmers Market">
-                <div class="carousel-caption">Farmers Market</div>
+                <img src="Perspectiva/PRAIA VISTA - VISTA AÉREA Posição 14.png" alt="Praia Vista - Vista Aérea">
+                <div class="carousel-caption">Praia Vista - Vista Aérea</div>
               </div>
               <div class="carousel-slide" data-index="14">
-                <img src="Perspectiva/FARMERS MARKET (3).jpg" alt="Farmers Market">
-                <div class="carousel-caption">Farmers Market</div>
+                <img src="Perspectiva/PRAIA Posição 15.png" alt="Praia">
+                <div class="carousel-caption">Praia</div>
               </div>
               <div class="carousel-slide" data-index="15">
-                <img src="Perspectiva/FITNESS.jpg" alt="Fitness">
-                <div class="carousel-caption">Fitness</div>
+                <img src="Perspectiva/PRAIA (2) Posição 16.png" alt="Praia">
+                <div class="carousel-caption">Praia</div>
               </div>
               <div class="carousel-slide" data-index="16">
-                <img src="Perspectiva/FITNESS (2).jpg" alt="Fitness">
-                <div class="carousel-caption">Fitness</div>
+                <img src="Perspectiva/PISCINAS ADULTO E INFANTIL Posição 17.jpg" alt="Piscinas Adulto e Infantil">
+                <div class="carousel-caption">Piscinas Adulto e Infantil</div>
               </div>
               <div class="carousel-slide" data-index="17">
-                <img src="Perspectiva/HARAS_Entrada.jpg" alt="Haras - Entrada">
-                <div class="carousel-caption">Haras - Entrada</div>
+                <img src="Perspectiva/LA SUSANA BEACH CLUB Posição 18.png" alt="La Susana Beach Club">
+                <div class="carousel-caption">La Susana Beach Club</div>
               </div>
               <div class="carousel-slide" data-index="18">
-                <img src="Perspectiva/HARAS_Aérea.jpg" alt="Haras - Vista Aérea">
-                <div class="carousel-caption">Haras - Vista Aérea</div>
+                <img src="Perspectiva/COMPLEXO DE QUADRAS Posição 19.jpg" alt="Complexo de Quadras">
+                <div class="carousel-caption">Complexo de Quadras</div>
               </div>
               <div class="carousel-slide" data-index="19">
-                <img src="Perspectiva/HOTEL VIK RETRATS - VISTA LATERAL.png" alt="Hotel Vik Retreats - Vista Lateral">
-                <div class="carousel-caption">Hotel Vik Retreats - Vista Lateral</div>
+                <img src="Perspectiva/FITNESS Posição 20.jpg" alt="Fitness">
+                <div class="carousel-caption">Fitness</div>
               </div>
               <div class="carousel-slide" data-index="20">
-                <img src="Perspectiva/HOTEL VIK RETREATS - ACESSO.png" alt="Hotel Vik Retreats - Acesso">
-                <div class="carousel-caption">Hotel Vik Retreats - Acesso</div>
+                <img src="Perspectiva/FITNESS (2) Posição 21.jpg" alt="Fitness">
+                <div class="carousel-caption">Fitness</div>
               </div>
               <div class="carousel-slide" data-index="21">
-                <img src="Perspectiva/HOTEL VIK RETREATS FACHADA.png" alt="Hotel Vik Retreats - Fachada">
-                <div class="carousel-caption">Hotel Vik Retreats - Fachada</div>
+                <img src="Perspectiva/HARAS_Aérea Posição 22.jpg" alt="Haras - Vista Aérea">
+                <div class="carousel-caption">Haras - Vista Aérea</div>
               </div>
               <div class="carousel-slide" data-index="22">
-                <img src="Perspectiva/HOTEL VIK RETREATS VINHEDOS.png" alt="Hotel Vik Retreats - Vinhedos">
-                <div class="carousel-caption">Hotel Vik Retreats - Vinhedos</div>
+                <img src="Perspectiva/HARAS_Entrada Posição 23.jpg" alt="Haras - Entrada">
+                <div class="carousel-caption">Haras - Entrada</div>
               </div>
               <div class="carousel-slide" data-index="23">
+                <img src="Perspectiva/COUNTRY CLUB - ENTRADA Posição 24.jpg" alt="Country Club - Entrada">
+                <div class="carousel-caption">Country Club - Entrada</div>
+              </div>
+              <div class="carousel-slide" data-index="24">
+                <img src="Perspectiva/COUNTRY CLUB - LOUNGE Posição 25.jpg" alt="Country Club - Lounge">
+                <div class="carousel-caption">Country Club - Lounge</div>
+              </div>
+              <div class="carousel-slide" data-index="25">
+                <img src="Perspectiva/COUNTRY CLUB - LOUNGE (2)Posição 26.jpg" alt="Country Club - Lounge">
+                <div class="carousel-caption">Country Club - Lounge</div>
+              </div>
+              <div class="carousel-slide" data-index="26">
+                <img src="Perspectiva/COMPLEXO DE LAGOS Posição 27.jpg" alt="Complexo de Lagos">
+                <div class="carousel-caption">Complexo de Lagos</div>
+              </div>
+              <div class="carousel-slide" data-index="27">
+                <img src="Perspectiva/CAPELA ECUMENICA Posição 28.jpg" alt="Capela Ecumênica">
+                <div class="carousel-caption">Capela Ecumênica</div>
+              </div>
+              <div class="carousel-slide" data-index="28">
+                <img src="Perspectiva/CAPELA ECUMENICA posição 29.jpg" alt="Capela Ecumênica">
+                <div class="carousel-caption">Capela Ecumênica</div>
+              </div>
+              <div class="carousel-slide" data-index="29">
+                <img src="Perspectiva/CAPELA ECUMENICA Posição 30.jpg" alt="Capela Ecumênica">
+                <div class="carousel-caption">Capela Ecumênica</div>
+              </div>
+              <div class="carousel-slide" data-index="30">
+                <img src="Perspectiva/HOTEL VIK RETREATS - ACESSO Posição 31.png" alt="Hotel Vik Retreats - Acesso">
+                <div class="carousel-caption">Hotel Vik Retreats - Acesso</div>
+              </div>
+              <div class="carousel-slide" data-index="31">
+                <img src="Perspectiva/HOTEL VIK RETREATS FACHADAPosição 32.png" alt="Hotel Vik Retreats - Fachada">
+                <div class="carousel-caption">Hotel Vik Retreats - Fachada</div>
+              </div>
+              <div class="carousel-slide" data-index="32">
+                <img src="Perspectiva/HOTEL VIK RETRATS - VISTA LATERAL Posição 33.png" alt="Hotel Vik Retreats - Vista Lateral">
+                <div class="carousel-caption">Hotel Vik Retreats - Vista Lateral</div>
+              </div>
+              <div class="carousel-slide" data-index="33">
+                <img src="Perspectiva/HOTEL VIK RETREATS VINHEDOS Posição 34.png" alt="Hotel Vik Retreats - Vinhedos">
+                <div class="carousel-caption">Hotel Vik Retreats - Vinhedos</div>
+              </div>
+              <div class="carousel-slide" data-index="34">
                 <img src="Perspectiva/IMPLANTAÇÃO FASE 1.jpg" alt="Implantação Fase 1">
                 <div class="carousel-caption">Implantação Fase 1</div>
               </div>
-              <div class="carousel-slide" data-index="24">
+              <div class="carousel-slide" data-index="35">
                 <img src="Perspectiva/IMPLANTAÇÃO 2.png" alt="Implantação">
                 <div class="carousel-caption">Implantação</div>
-              </div>
-              <div class="carousel-slide" data-index="25">
-                <img src="Perspectiva/KIDS_EXTERNA.jpg" alt="Espaço Kids - Externa">
-                <div class="carousel-caption">Espaço Kids - Externa</div>
-              </div>
-              <div class="carousel-slide" data-index="26">
-                <img src="Perspectiva/KIDS_INTERNA.jpg" alt="Espaço Kids - Interna">
-                <div class="carousel-caption">Espaço Kids - Interna</div>
-              </div>
-              <div class="carousel-slide" data-index="27">
-                <img src="Perspectiva/LA SUSANA BEACH CLUB.png" alt="La Susana Beach Club">
-                <div class="carousel-caption">La Susana Beach Club</div>
-              </div>
-              <div class="carousel-slide" data-index="28">
-                <img src="Perspectiva/PAVILHÃO DE EXPERIÊNCIAS.jpg" alt="Pavilhão de Experiências">
-                <div class="carousel-caption">Pavilhão de Experiências</div>
-              </div>
-              <div class="carousel-slide" data-index="29">
-                <img src="Perspectiva/PAVILHÃO DE EXPERIENCIAS.jpg" alt="Pavilhão de Experiências">
-                <div class="carousel-caption">Pavilhão de Experiências</div>
-              </div>
-              <div class="carousel-slide" data-index="30">
-                <img src="Perspectiva/PISCINA DE ONDAS.png" alt="Piscina de Ondas">
-                <div class="carousel-caption">Piscina de Ondas</div>
-              </div>
-              <div class="carousel-slide" data-index="31">
-                <img src="Perspectiva/PISCINAS ADULTO E INFANTIL.jpg" alt="Piscinas Adulto e Infantil">
-                <div class="carousel-caption">Piscinas Adulto e Infantil</div>
-              </div>
-              <div class="carousel-slide" data-index="32">
-                <img src="Perspectiva/PORTARIA_1.jpg" alt="Portaria">
-                <div class="carousel-caption">Portaria</div>
-              </div>
-              <div class="carousel-slide" data-index="33">
-                <img src="Perspectiva/PORTARIA_2.jpg" alt="Portaria">
-                <div class="carousel-caption">Portaria</div>
-              </div>
-              <div class="carousel-slide" data-index="34">
-                <img src="Perspectiva/PRAIA.png" alt="Praia">
-                <div class="carousel-caption">Praia</div>
-              </div>
-              <div class="carousel-slide" data-index="35">
-                <img src="Perspectiva/PRAIA (2).png" alt="Praia">
-                <div class="carousel-caption">Praia</div>
-              </div>
-              <div class="carousel-slide" data-index="36">
-                <img src="Perspectiva/PRAIA VISTA - VISTA AÉREA.png" alt="Praia Vista - Vista Aérea">
-                <div class="carousel-caption">Praia Vista - Vista Aérea</div>
-              </div>
-              <div class="carousel-slide" data-index="37">
-                <img src="Perspectiva/VISTA ÁREA.jpg" alt="Vista Aérea">
-                <div class="carousel-caption">Vista Aérea</div>
               </div>
             </div>
             <div class="carousel-dots"></div>
@@ -760,6 +728,57 @@
     </button>
     <div class="lightbox-content" onclick="event.stopPropagation()">
       <img id="lightbox-img" src="" alt="">
+    </div>
+  </div>
+
+  <!-- Modal de vídeo do projeto -->
+  <div id="video-modal" class="video-modal" aria-hidden="true" onclick="closeVideoModal(event)">
+    <button type="button" class="video-modal-close" onclick="closeVideoModal()" aria-label="Fechar vídeo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </button>
+    <div class="video-modal-content" onclick="event.stopPropagation()">
+      <video id="project-video" class="project-video" controls preload="metadata">
+        <source src="video-projeto.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
+  <!-- Modal de vídeo: VIK Retreats -->
+  <div id="vik-video-modal" class="video-modal" aria-hidden="true" onclick="closeVikVideoModal(event)">
+    <button type="button" class="video-modal-close" onclick="closeVikVideoModal()" aria-label="Fechar vídeo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </button>
+    <div class="video-modal-content" onclick="event.stopPropagation()">
+      <video id="vik-video" class="project-video" controls preload="metadata">
+        <source src="vik-retreats.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
+  <!-- Galeria (Perspectiva Aquarela) por amenitie -->
+  <div id="amenity-gallery" class="amenity-gallery" aria-hidden="true" onclick="closeAmenityGallery(event)">
+    <button type="button" class="amenity-gallery-close" onclick="closeAmenityGallery()" aria-label="Fechar galeria">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </button>
+    <div class="amenity-gallery-content" onclick="event.stopPropagation()">
+      <div class="amenity-gallery-header">
+        <h3 id="amenity-gallery-title" class="amenity-gallery-title">Amenity</h3>
+      </div>
+      <div class="amenity-gallery-carousel">
+        <button type="button" class="amenity-gallery-btn amenity-gallery-prev" aria-label="Anterior">‹</button>
+        <div class="amenity-gallery-stage">
+          <img id="amenity-gallery-img" src="" alt="">
+          <div id="amenity-gallery-caption" class="amenity-gallery-caption"></div>
+        </div>
+        <button type="button" class="amenity-gallery-btn amenity-gallery-next" aria-label="Próximo">›</button>
+      </div>
+      <div id="amenity-gallery-dots" class="amenity-gallery-dots" aria-hidden="true"></div>
     </div>
   </div>
 
