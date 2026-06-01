@@ -170,6 +170,10 @@ textarea {
   display: flex;
   flex-direction: row;
   position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
 }
 
 /* === Botão abrir menu (visível quando menu fechado) === */
@@ -411,7 +415,7 @@ textarea {
   justify-content: center;
   padding: 1.5rem;
   background: rgba(0, 0, 0, 0.72);
-  z-index: 2000;
+  z-index: 5000;
 }
 
 .video-modal.active {
@@ -634,27 +638,26 @@ textarea {
   position: relative;
   flex: 1;
   min-height: 0;
+  min-width: 0;
   width: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
   color: var(--charcoal);
 }
 
-.content-pages::-webkit-scrollbar {
+.content-page::-webkit-scrollbar {
   width: 8px;
 }
 
-.content-pages::-webkit-scrollbar-track {
+.content-page::-webkit-scrollbar-track {
   background: rgba(0, 0, 0, 0.06);
 }
 
-.content-pages::-webkit-scrollbar-thumb {
+.content-page::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.22);
   border-radius: 4px;
 }
 
-.content-pages::-webkit-scrollbar-thumb:hover {
+.content-page::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 0, 0, 0.32);
 }
 
@@ -666,21 +669,21 @@ textarea {
   visibility: hidden;
   transition: opacity 0.5s ease, transform 0.5s ease;
   pointer-events: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  box-sizing: border-box;
 }
 
 .content-page.active {
-  position: relative;
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
   animation: pageIn 0.5s ease forwards;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100%;
+  display: block;
   width: 100%;
-  box-sizing: border-box;
+  padding: 0 0 2rem;
 }
 
 .content-page.leaving {
@@ -715,7 +718,6 @@ textarea {
   width: min(100%, 720px);
   max-width: 720px;
   margin: 0 auto;
-  align-self: center;
   text-align: left;
 }
 
@@ -1024,6 +1026,11 @@ textarea {
 }
 
 /* Cocriadores */
+.content-page-cocriadores.active .content-inner {
+  width: min(100%, 1200px);
+  max-width: 1200px;
+}
+
 .cocriadores-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1071,6 +1078,8 @@ textarea {
   content: '';
   position: absolute;
   inset: 0;
+  z-index: 0;
+  pointer-events: none;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24' fill='none' stroke='%23d4cfc4' stroke-width='1.5' stroke-opacity='0.4'%3E%3Ccircle cx='12' cy='8' r='3'/%3E%3Cpath d='M4 20c0-4 4-6 8-6s8 2 8 6'/%3E%3C/svg%3E") center no-repeat;
   opacity: 0.6;
 }
@@ -1081,10 +1090,47 @@ textarea {
   object-fit: cover;
   position: relative;
   z-index: 1;
+  pointer-events: none;
 }
 
 .person-photo img.load-failed {
   display: none;
+}
+
+button.person-photo {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: inherit;
+}
+
+button.person-photo:focus-visible {
+  outline: 2px solid rgba(232, 228, 220, 0.65);
+  outline-offset: 3px;
+}
+
+.person-photo-play-icon {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--white);
+  background: rgba(10, 10, 10, 0.4);
+  opacity: 0.85;
+  transition: opacity 0.25s ease, background 0.25s ease;
+  pointer-events: none;
+}
+
+.person-photo-play:hover .person-photo-play-icon,
+.person-photo-play:focus-visible .person-photo-play-icon {
+  opacity: 1;
+  background: rgba(10, 10, 10, 0.55);
 }
 
 .pessoa-card h4 {
@@ -1714,7 +1760,14 @@ textarea {
 @media (max-width: 900px) {
   .app-layout {
     flex-direction: column;
-    min-height: 100vh;
+    height: 100%;
+    min-height: 0;
+  }
+
+  .content-area {
+    flex: 1;
+    min-height: 0;
+    width: 100%;
   }
   
   .sidebar {
@@ -1790,7 +1843,11 @@ textarea {
 
 /* === Página Perspectiva - Carrossel Full Screen === */
 .content-page-full {
-  min-height: 100%;
+  overflow: hidden;
+}
+
+.content-page-full.active {
+  overflow: hidden;
 }
 
 .content-page-full .carousel-container {

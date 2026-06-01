@@ -41,8 +41,9 @@ document.querySelectorAll('.menu-item').forEach(btn => {
       document.querySelectorAll('.menu-item').forEach(m => m.classList.remove('active'));
       clickedBtn.classList.add('active');
 
-      // Scroll para o topo
-      document.querySelector('.content-pages').scrollTop = 0;
+      // Scroll para o topo da página ativa
+      const activePage = document.querySelector('.content-page.active');
+      if (activePage) activePage.scrollTop = 0;
 
       // Foca no carrossel se for a página Perspectiva (para teclado)
       if (pageId === 'page-perspectiva') {
@@ -82,8 +83,63 @@ document.addEventListener('keydown', function(e) {
     closeVideoModal();
     closeAmenityGallery();
     closeVikVideoModal();
+    closeCocriadorVideoModal();
   }
 });
+
+function encodeMediaPath(path) {
+  return String(path)
+    .split('/')
+    .map(segment => encodeURIComponent(segment))
+    .join('/');
+}
+
+function openCocriadorVideo(src) {
+  const modal = document.getElementById('cocriador-video-modal');
+  const video = document.getElementById('cocriador-video');
+  if (!modal || !video || !src) return;
+
+  video.src = encodeMediaPath(src);
+  video.load();
+  modal.classList.add('active');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  const playPromise = video.play();
+  if (playPromise && typeof playPromise.catch === 'function') {
+    playPromise.catch(() => {});
+  }
+}
+
+function closeCocriadorVideoModal(e) {
+  if (e && e.target !== e.currentTarget) return;
+  const modal = document.getElementById('cocriador-video-modal');
+  const video = document.getElementById('cocriador-video');
+  if (!modal) return;
+
+  modal.classList.remove('active');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+
+  if (video) {
+    try { video.pause(); } catch (_) {}
+    try { video.currentTime = 0; } catch (_) {}
+    video.removeAttribute('src');
+    video.load();
+  }
+}
+
+function initCocriadorVideos() {
+  const page = document.getElementById('page-cocriadores');
+  if (!page) return;
+
+  page.addEventListener('click', (e) => {
+    const btn = e.target.closest('.person-photo-play[data-video]');
+    if (!btn) return;
+    e.preventDefault();
+    const src = btn.getAttribute('data-video');
+    if (src) openCocriadorVideo(src);
+  });
+}
 
 function openVikVideoModal() {
   const modal = document.getElementById('vik-video-modal');
@@ -281,6 +337,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (firstMenuItem) firstMenuItem.classList.add('active');
   initCarousel();
   initAmenityClicks();
+  initCocriadorVideos();
 });
 
 window.addEventListener('load', function() {
