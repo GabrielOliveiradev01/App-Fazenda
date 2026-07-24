@@ -3,3 +3,8 @@
 node_modules/
 .venv-icons/
 .venv-icons/
+
+# Vídeos grandes (>100MB) — hospedar fora do GitHub
+Perspectiva/Videos Cocriadores/*.mp4
+03 - Fazenda Vista Verde - Vik PT.mp4
+04 - Fazenda Vista Verde Wavegarden - PT.mp4

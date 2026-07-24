@@ -1,0 +1,8 @@
+[build]
+  publish = "."
+
+# Evita cache agressivo quebrando assets após deploy
+[[headers]]
+  for = "/*.{jpg,jpeg,png,webp,mp4,css,js}"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"

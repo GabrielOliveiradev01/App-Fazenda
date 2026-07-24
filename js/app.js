@@ -55,11 +55,25 @@ document.querySelectorAll('.menu-item').forEach(btn => {
 });
 
 // Lightbox para ampliar imagens
+function encodeMediaPath(path) {
+  let decoded = String(path || '');
+  try {
+    decoded = decodeURIComponent(decoded);
+  } catch (_) {}
+  try {
+    decoded = decoded.normalize('NFC');
+  } catch (_) {}
+  return decoded
+    .split('/')
+    .map(segment => encodeURIComponent(segment))
+    .join('/');
+}
+
 function openImagemLightbox(src, alt) {
   const lightbox = document.getElementById('lightbox');
   const img = document.getElementById('lightbox-img');
   if (lightbox && img) {
-    img.src = src;
+    img.src = encodeMediaPath(src);
     img.alt = alt;
     lightbox.classList.add('active');
     lightbox.setAttribute('aria-hidden', 'false');
@@ -86,13 +100,6 @@ document.addEventListener('keydown', function(e) {
     closeCocriadorVideoModal();
   }
 });
-
-function encodeMediaPath(path) {
-  return String(path)
-    .split('/')
-    .map(segment => encodeURIComponent(segment))
-    .join('/');
-}
 
 function openCocriadorVideo(src) {
   const modal = document.getElementById('cocriador-video-modal');
@@ -333,11 +340,13 @@ function closeVideoModal(e) {
 // Sempre abrir apenas a tela inicial (splash)
 document.addEventListener('DOMContentLoaded', function() {
   goTo('screen-splash');
-  const firstMenuItem = document.querySelector('.menu-item[data-page="page-vik"]');
+  const firstMenuItem = document.querySelector('.menu-item[data-page="page-contexto"]');
   if (firstMenuItem) firstMenuItem.classList.add('active');
   initCarousel();
   initAmenityClicks();
   initCocriadorVideos();
+  initLocalizacaoMapa();
+  initImplantacaoTabs();
 });
 
 window.addEventListener('load', function() {
@@ -404,5 +413,140 @@ function initCarousel() {
   container.addEventListener('touchend', (e) => {
     const diff = touchStartX - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 50) showSlide(currentIndex + (diff > 0 ? 1 : -1));
+  });
+}
+
+function initLocalizacaoMapa() {
+  const map = document.getElementById('mapa-interativo');
+  const popup = document.getElementById('mapa-popup');
+  if (!map || !popup) return;
+
+  const titleEl = document.getElementById('mapa-popup-title');
+  const timeEl = document.getElementById('mapa-popup-time');
+  const descEl = document.getElementById('mapa-popup-desc');
+  const linkEl = document.getElementById('mapa-popup-link');
+  const iconEl = document.getElementById('mapa-popup-icon');
+  const closeBtn = popup.querySelector('.mapa-popup-close');
+
+  const places = {
+    fazenda: {
+      title: 'Fazenda Vista Verde',
+      time: 'Você está aqui',
+      desc: 'Refúgio em Araçoiaba da Serra, com acesso pelas rodovias Raposo Tavares e Pres. Castello Branco.',
+      maps: 'https://www.google.com/maps/search/Ara%C3%A7oiaba+da+Serra+SP'
+    },
+    aracoiaba: {
+      title: 'Centro de Araçoiaba da Serra',
+      time: '5 min',
+      desc: 'Centro da cidade, comércio e serviços ao lado da Fazenda.',
+      maps: 'https://www.google.com/maps/search/Centro+Ara%C3%A7oiaba+da+Serra+SP'
+    },
+    shopping: {
+      title: 'Shopping Iguatemi Sorocaba',
+      time: '12 min',
+      desc: 'Compras, gastronomia e lazer em Sorocaba.',
+      maps: 'https://www.google.com/maps/search/Shopping+Iguatemi+Sorocaba'
+    },
+    viracopos: {
+      title: 'Aeroporto Internacional de Viracopos',
+      time: '1h',
+      desc: 'Conexões nacionais e internacionais em Campinas.',
+      maps: 'https://www.google.com/maps/search/Aeroporto+Viracopos'
+    },
+    saopaulo: {
+      title: 'São Paulo / SP',
+      time: '1h30',
+      desc: 'Capital a pouco mais de uma hora e meia de distância.',
+      maps: 'https://www.google.com/maps/search/S%C3%A3o+Paulo+SP'
+    }
+  };
+
+  function setActive(pinId) {
+    map.querySelectorAll('.mapa-pin').forEach((pin) => {
+      pin.classList.toggle('is-active', pin.getAttribute('data-pin') === pinId);
+    });
+    document.querySelectorAll('.mapa-legend-item').forEach((item) => {
+      item.classList.toggle('is-active', item.getAttribute('data-pin') === pinId);
+    });
+  }
+
+  function openPin(pinId) {
+    const place = places[pinId];
+    const pinBtn = map.querySelector(`.mapa-pin[data-pin="${pinId}"]`);
+    if (!place || !pinBtn) return;
+
+    titleEl.textContent = place.title;
+    timeEl.textContent = place.time;
+    descEl.textContent = place.desc;
+    linkEl.href = place.maps;
+
+    const iconClone = pinBtn.querySelector('.mapa-pin-icon');
+    iconEl.innerHTML = iconClone ? iconClone.innerHTML : '';
+
+    popup.hidden = false;
+    setActive(pinId);
+  }
+
+  function closePopup() {
+    popup.hidden = true;
+    setActive(null);
+  }
+
+  map.querySelectorAll('.mapa-pin').forEach((pin) => {
+    pin.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const pinId = pin.getAttribute('data-pin');
+      if (pin.classList.contains('is-active') && !popup.hidden) {
+        closePopup();
+        return;
+      }
+      openPin(pinId);
+    });
+  });
+
+  document.querySelectorAll('.mapa-legend-item').forEach((item) => {
+    item.addEventListener('click', () => {
+      const pinId = item.getAttribute('data-pin');
+      openPin(pinId);
+    });
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closePopup();
+  });
+
+  map.addEventListener('click', (e) => {
+    if (e.target.closest('.mapa-pin') || e.target.closest('.mapa-popup')) return;
+    closePopup();
+  });
+}
+
+function initImplantacaoTabs() {
+  const page = document.getElementById('page-implantacao');
+  if (!page) return;
+
+  const tabs = page.querySelectorAll('.implantacao-tab');
+  const panels = page.querySelectorAll('.implantacao-panel');
+  if (!tabs.length || !panels.length) return;
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const panelId = tab.getAttribute('data-panel');
+      if (!panelId) return;
+
+      tabs.forEach((t) => {
+        const active = t === tab;
+        t.classList.toggle('is-active', active);
+        t.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+
+      panels.forEach((panel) => {
+        const active = panel.id === `implantacao-panel-${panelId}`;
+        panel.classList.toggle('is-active', active);
+        if (active) panel.removeAttribute('hidden');
+        else panel.setAttribute('hidden', '');
+      });
+    });
   });
 }
