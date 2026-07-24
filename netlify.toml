@@ -1,10 +1,22 @@
-# Site estático (HTML/CSS/JS) — sem build de framework
+# Site estático — sem build de framework
 [build]
   command = "true"
   publish = "."
 
-# Garante que index.html seja a home
-[[redirects]]
-  from = "/"
-  to = "/index.html"
-  status = 200
+# Evita pós-processamento que falha com imagens grandes/acentos
+[build.processing]
+  skip_processing = true
+
+[build.processing.html]
+  pretty_urls = false
+
+[build.processing.css]
+  bundle = false
+  minify = false
+
+[build.processing.js]
+  bundle = false
+  minify = false
+
+[build.processing.images]
+  compress = false
