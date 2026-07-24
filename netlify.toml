@@ -1,8 +1,10 @@
+# Site estático (HTML/CSS/JS) — sem build de framework
 [build]
+  command = "true"
   publish = "."
 
-# Evita cache agressivo quebrando assets após deploy
-[[headers]]
-  for = "/*.{jpg,jpeg,png,webp,mp4,css,js}"
-  [headers.values]
-    Cache-Control = "public, max-age=3600"
+# Garante que index.html seja a home
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
