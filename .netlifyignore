@@ -1,0 +1,15 @@
+# Originais grandes (versões compactadas sobem no deploy)
+*.mp4.original
+Alexandre Sahyoun.mp4
+
+# Dev / sistema
+.git/
+.github/
+node_modules/
+.venv-icons/
+.tools/
+*.log
+.DS_Store
+THFT9256.jpg
+BOLOTÁRIO.pdf
+BOOK DIGITAL FAZENDA VISTA VERDE.pdf

@@ -2,9 +2,18 @@
 *.log
 node_modules/
 .venv-icons/
-.venv-icons/
+.tools/
 
-# Vídeos grandes (>100MB) — hospedar fora do GitHub
-Perspectiva/Videos Cocriadores/*.mp4
-03 - Fazenda Vista Verde - Vik PT.mp4
-04 - Fazenda Vista Verde Wavegarden - PT.mp4
+# Originais grandes — versões compactadas vão no deploy
+*.mp4.original
+/Alexandre Sahyoun.mp4
+
+# Arquivos de referência, não usados no site
+THFT9256.jpg
+BOLOTÁRIO.pdf
+BOOK DIGITAL FAZENDA VISTA VERDE.pdf
+BOOK DIGITAL FAZENDA VISTA VERDE.pdf.png
+*.bak
+
+# Local Netlify folder
+.netlify
