@@ -156,7 +156,7 @@ function openVikVideoModal() {
   modal.classList.add('active');
   modal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
-  try { video.play(); } catch (_) {}
+  playModalVideo(video);
 }
 
 function closeVikVideoModal(e) {
@@ -310,6 +310,15 @@ function initAmenityClicks() {
   if (next) next.addEventListener('click', () => nextAmenityGallery(1));
 }
 
+function playModalVideo(video) {
+  if (!video) return;
+  try { video.load(); } catch (_) {}
+  const playPromise = video.play();
+  if (playPromise && typeof playPromise.catch === 'function') {
+    playPromise.catch(() => {});
+  }
+}
+
 function openVideoModal() {
   const modal = document.getElementById('video-modal');
   const video = document.getElementById('project-video');
@@ -318,7 +327,7 @@ function openVideoModal() {
   modal.classList.add('active');
   modal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
-  try { video.play(); } catch (_) {}
+  playModalVideo(video);
 }
 
 function closeVideoModal(e) {
