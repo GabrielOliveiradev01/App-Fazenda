@@ -1,9 +1,8 @@
-# Vídeos fora do deploy por enquanto (LFS / tamanho)
-*.mp4
+# Originais grandes — versões compactadas sobem no deploy
 *.mp4.original
 Alexandre Sahyoun.mp4
 
-# Originais e docs pesados
+# Dev / sistema
 .git/
 .github/
 node_modules/
