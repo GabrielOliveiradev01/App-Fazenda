@@ -1,8 +1,9 @@
-# Originais grandes (versões compactadas sobem no deploy)
+# Vídeos fora do deploy por enquanto (LFS / tamanho)
+*.mp4
 *.mp4.original
 Alexandre Sahyoun.mp4
 
-# Dev / sistema
+# Originais e docs pesados
 .git/
 .github/
 node_modules/
@@ -10,6 +11,8 @@ node_modules/
 .tools/
 *.log
 .DS_Store
+*.bak
 THFT9256.jpg
 BOLOTÁRIO.pdf
 BOOK DIGITAL FAZENDA VISTA VERDE.pdf
+BOOK DIGITAL FAZENDA VISTA VERDE.pdf.png
