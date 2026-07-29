@@ -3,6 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -11,7 +12,7 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   deploy:
@@ -21,14 +22,46 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          lfs: false
+
+      - name: Prepare publish folder
+        run: |
+          set -euo pipefail
+          rm -rf _site
+          mkdir -p _site
+          # Copia o site sem vídeos, git, tools e originais pesados
+          rsync -a \
+            --exclude '.git/' \
+            --exclude '.github/' \
+            --exclude '.netlify/' \
+            --exclude '.tools/' \
+            --exclude 'node_modules/' \
+            --exclude '.venv-icons/' \
+            --exclude '_site/' \
+            --exclude '*.mp4' \
+            --exclude '*.mp4.original' \
+            --exclude '*.bak' \
+            --exclude '.DS_Store' \
+            --exclude 'Alexandre Sahyoun.mp4' \
+            --exclude 'THFT9256.jpg' \
+            --exclude 'BOLOTÁRIO.pdf' \
+            --exclude 'BOOK DIGITAL FAZENDA VISTA VERDE.pdf' \
+            --exclude 'BOOK DIGITAL FAZENDA VISTA VERDE.pdf.png' \
+            ./ _site/
+          # Remove ponteiros LFS de vídeo se sobrarem
+          find _site -type f -name '*.mp4' -delete
+          du -sh _site
 
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: '_site'
 
       - name: Deploy to GitHub Pages
         id: deployment
