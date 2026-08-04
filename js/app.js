@@ -1,3 +1,7 @@
+function isMobileLayout() {
+  return window.matchMedia('(max-width: 900px)').matches;
+}
+
 function goTo(screenId) {
   if (screenId === 'screen-app' || screenId === 'screen-splash') {
     document.querySelectorAll('.screen').forEach(screen => {
@@ -5,6 +9,11 @@ function goTo(screenId) {
     });
     const target = document.getElementById(screenId);
     if (target) target.classList.add('active');
+
+    // No mobile, entra no app com o menu fechado para ver o conteúdo
+    if (screenId === 'screen-app' && isMobileLayout()) {
+      target.classList.add('menu-closed');
+    }
     return;
   }
 }
@@ -17,6 +26,17 @@ function toggleMenu() {
   if (app) app.classList.toggle('menu-closed');
 }
 
+function closeMenuMobile() {
+  const app = document.getElementById('screen-app');
+  if (app && isMobileLayout()) app.classList.add('menu-closed');
+}
+
+// Backdrop do drawer: clique fora do menu fecha
+document.getElementById('screen-app')?.addEventListener('click', function (e) {
+  if (!isMobileLayout() || this.classList.contains('menu-closed')) return;
+  if (e.target === this) closeMenuMobile();
+});
+
 // Navegação entre páginas de conteúdo
 document.querySelectorAll('.menu-item').forEach(btn => {
   btn.addEventListener('click', function() {
@@ -27,7 +47,12 @@ document.querySelectorAll('.menu-item').forEach(btn => {
     const nextPage = document.getElementById(pageId);
     const clickedBtn = this;
 
-    if (!nextPage || currentPage === nextPage) return;
+    if (!nextPage || currentPage === nextPage) {
+      closeMenuMobile();
+      return;
+    }
+
+    closeMenuMobile();
 
     // Animação de saída
     currentPage.classList.add('leaving');
@@ -98,6 +123,7 @@ document.addEventListener('keydown', function(e) {
     closeAmenityGallery();
     closeVikVideoModal();
     closeCocriadorVideoModal();
+    closeMenuMobile();
   }
 });
 
